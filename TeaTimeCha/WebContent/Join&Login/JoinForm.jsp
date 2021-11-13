@@ -33,31 +33,32 @@ pageEncoding="UTF-8"%>
 </div>
 
 <div class="join_container"> 
-		<h2> 
+		<h1> 
 			회원 가입 
-		</h2> 
+		</h1> 
+		<br/>
 		<form method="post" action="JoinAction.jsp"> 
-			<h3>
+			<h4>
 				아이디
-			</h3> 
+			</h4> 
 			<div class="joinID"> 
 				<input type="text" class="input" style="ime-mode:disabled;" placeholder="아이디" name="userID" title="아이디" maxlength="20"> 
 			</div> 
-			<h3>
+			<h4>
 				비밀번호
-			</h3> 
+			</h4> 
 			<div class="joinPassword"> 
 				<input type="password" class="input" placeholder="비밀번호" name="userPassword" title="비밀번호" maxlength="20"> 
 			</div> 
-			<h3>
+			<h4>
 				이름
-			</h3> 
+			</h4> 
 			<div class="joinName"> 
 				<input type="text" class="input" placeholder="이름" name="userName" title="이름" maxlength="20"> 
 			</div>
-			<h3>
+			<h4>
 				닉네임
-			</h3> 
+			</h4> 
 			<div class="joinNickname"> 
 				<input type="text" class="input" placeholder="닉네임" name="userNickname" title="닉네임" maxlength="20"> 
 			</div>
