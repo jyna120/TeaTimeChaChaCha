@@ -32,8 +32,6 @@ public class MemberMgr {
 			pstmt.setString(3, bean.getMember_name());
 			pstmt.setString(4, bean.getMember_nickname());
 			
-			System.out.println(pstmt);
-			
 			if (pstmt.executeUpdate() == 1)
 				flag = true;
 		} catch (Exception e) {

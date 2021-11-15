@@ -25,7 +25,6 @@
 	<b><%=member_name%></b>님의 회원가입이 완료되었습니다.
 
 </body>
-
 <!--출처: https://group11.tistory.com/9 [Jo's] --> --%>
 
 <%@page contentType="text/html; charset=UTF-8" %>
