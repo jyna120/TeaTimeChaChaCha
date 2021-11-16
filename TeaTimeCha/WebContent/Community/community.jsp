@@ -44,8 +44,8 @@
 		<tr align="center" bgcolor="#D0D0D0" height="120%">
 			<td>번 호</td>
 			<td>제 목</td>
-			<td>이 름</td>
-			<td>날 짜</td>
+			<td>작성자</td>
+			<td>작성일</td>
 			<td>조회수</td>
 		</tr>
 	</table>
