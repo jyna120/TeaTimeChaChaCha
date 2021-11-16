@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%
+	  request.setCharacterEncoding("EUC-KR");
+	  String id = (String)session.getAttribute("idKey");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +14,19 @@
 <link rel="stylesheet" href="../headerStyle.css" type="text/css">
 
 <script type="text/javascript">
+	function loginCheck() {
+		if (document.loginFrm.member_id.value == "") {
+			alert("아이디를 입력해 주세요.");
+			document.loginFrm.member_id.focus();
+			return;
+		}
+		if (document.loginFrm.member_pwd.value == "") {
+			alert("비밀번호를 입력해 주세요.");
+			document.loginFrm.member_pwd.focus();
+			return;
+		}
+		document.loginFrm.submit();
+	}
 </script>
 
 <title>로그인</title>
@@ -33,27 +50,33 @@
 	</div>
 
 	<h2 id="headerTitle" ></h2>
-</div>
+</div>	
 	<div class="login_containers"> 
 		<h2> 
 			로그인
 		 </h2> 
-		<form method="post" action="#"> 
+		 <%if (id != null) {%>
+		<b><%=id%></b>님 환영 합니다.
+		<p>제한된 기능을 사용 할 수가 있습니다.<p/>
+			<a class="alogout" href="logout.jsp">로그아웃</a>
+			<%} else {%>
+		<form name="loginFrm" method="post" action="loginProc.jsp"> 
 		<h3>
 			아이디
 		</h3> 
 		<div class="loginID"> 
-			<input type="text" class="input" placeholder="아이디" name="userID" maxlength="20"> 
+			<input type="text" class="input" placeholder="아이디" name="member_id" maxlength="20"> 
 		</div> 
 		<h3>
 			비밀번호
 		</h3> 
 		<div class="loginPassword"> 
-			<input type="password" class="input" placeholder="비밀번호" name="userPassword" maxlength="20"> 
+			<input type="password" class="input" placeholder="비밀번호" name="member_pwd" maxlength="20"> 
 		</div> 
-		<input type="submit" class="bt_login" value="로그인"> 
+		<input type="button" class="bt_login" value="로그인" onclick="loginCheck()">&nbsp;
 		<input type="button" class="bt_join" value="회원가입" onclick="location.href='JoinForm.jsp'">
 		</form> 
+		<%}%>
 	</div>
 <br>
 

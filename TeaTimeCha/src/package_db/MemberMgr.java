@@ -41,5 +41,28 @@ public class MemberMgr {
 		}
 		return flag;
 	}
+	
+	// ·Î±×ÀÎ
+		public boolean loginMember(String id, String pwd) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = null;
+			boolean flag = false;
+			try {
+				con = pool.getConnection();
+				sql = "select member_id from tblMember where member_id = ? and member_pwd = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, id);
+				pstmt.setString(2, pwd);
+				rs = pstmt.executeQuery();
+				flag = rs.next();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				pool.freeConnection(con, pstmt, rs);
+			}
+			return flag;
+		}
 
 }
