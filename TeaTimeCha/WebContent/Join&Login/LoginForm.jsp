@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="loginStyle.css" type="text/css">
-<link rel="stylesheet" href="../headerStyle.css" type="text/css">
+
 
 <script type="text/javascript">
 	function loginCheck() {
@@ -29,26 +29,22 @@
 	}
 </script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+ <script>
+        $(document).ready(function () {
+            $("#header").load("../menubar.jsp", function () {
+            //페이지 별로 다른 메뉴 css 적용도 가능
+                document.getElementById("sub_nav").classList.add("show");
+            });
+        })
+ </script>
+
 <title>로그인</title>
 </head>
 <body>
 <div id="header" >
-	<div id="nav">
-	<nav>
-        <ul>
-            <li><a href="../Home/home.jsp">소개</a></li>
-            <li><a>|</a></li>
-            <li><a href="#">차</a></li>
-            <li><a>|</a></li>
-            <li><a href="../Cafe/cafe.jsp">카페</a></li>
-            <li><a>|</a></li>
-            <li><a href="../Community/community.jsp">후기</a></li>
-            <li><a>|</a></li>
-            <li><a href="../Join&Login/LoginForm.jsp">로그인</a></li>
-        </ul>   
-    </nav>   
-	</div>
-
+	
 	<h2 id="headerTitle" ></h2>
 </div>	
 	<div class="login_containers"> 
@@ -56,10 +52,10 @@
 			로그인
 		 </h2> 
 		 <%if (id != null) {%>
-		<b><%=id%></b>님 환영 합니다.
-		<p>제한된 기능을 사용 할 수가 있습니다.<p/>
-			<a class="alogout" href="logout.jsp">로그아웃</a>
-			<%} else {%>
+			<script>	
+				location.href="../Home/home.jsp";
+			</script>
+		<%} else {%>
 		<form name="loginFrm" method="post" action="loginProc.jsp"> 
 		<h3>
 			아이디
