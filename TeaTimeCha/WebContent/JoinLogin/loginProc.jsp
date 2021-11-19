@@ -4,7 +4,7 @@
 	  request.setCharacterEncoding("EUC-KR");
 	  String id = request.getParameter("member_id");
 	  String pwd = request.getParameter("member_pwd");
-	  String url = "LoginForm.jsp";
+	  String url = "JoinLogin/LoginForm.jsp";
 	  String msg = "로그인에 실패 하였습니다.";
 	  
 	  boolean result = mMgr.loginMember(id,pwd);
@@ -15,5 +15,5 @@
 %>
 <script>
 	alert("<%=msg%>");	
-	location.href="<%=url%>";
+	location.href="MainForm.jsp?contentPage=<%=url%>";
 </script>

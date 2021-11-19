@@ -3,26 +3,56 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%
+	String id = (String)session.getAttribute("idKey");
+	String title = "소개";
+	int value=2;
+%>
+<script type="text/javascript">
+	function titleChange(value){
+		switch(value){
+		case 1: document.getElementById("headerTitle").value = "차"
+        	break;
+   		case 2: title ="차";
+        	break;
+   		case 3: title ="카페";
+    		break;
+   		case 4: title ="후기";
+			break;
+   		case 5: title = null;
+			break;
+  		default: title = null;
+        	break;
+		}
+		
+	}
+</script>
 <meta charset="EUC-KR">
+
 <title>Menu</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="headerStyle.css" type="text/css">
 </head>
 <body>
 <div id="nav">
 	<nav>
         <ul>
-            <li><a href="Home/home.jsp">소개</a></li>
+            <li><a href="MainForm.jsp?contentPage=Home/home.jsp" onclick="titleChange(1)">소개</a></li>
             <li><a>|</a></li>
-            <li><a href="Tea/TeaForm.jsp">차</a></li>
+            <li><a href="MainForm.jsp?contentPage=Tea/TeaForm.jsp" onclick="titleChange(2)">차</a></li>
             <li><a>|</a></li>
-            <li><a href="Cafe/cafe.jsp">카페</a></li>
+            <li><a href="MainForm.jsp?contentPage=Cafe/cafe.jsp">카페</a></li>
             <li><a>|</a></li>
-            <li><a href="Community/community.jsp">후기</a></li>
+            <li><a href="MainForm.jsp?contentPage=Community/community.jsp">후기</a></li>
             <li><a>|</a></li>
-            <li><a href="../Join&Login/LoginForm.jsp">로그인</a></li>
+            <%if (id == null) {%>
+            <li><a href="MainForm.jsp?contentPage=JoinLogin/LoginForm.jsp">로그인</a></li>
+            <%} else {%>
+            <li><a href="MainForm.jsp?contentPage=JoinLogin/logout.jsp">로그아웃</a></li>
+            <%}%>
         </ul>   
-    </nav>   
-	</div>
+    </nav>
+    <% %>
+    <h2 id="headerTitle"><%=title%></h2>   
+</div>
+  
 </body>
 </html>
