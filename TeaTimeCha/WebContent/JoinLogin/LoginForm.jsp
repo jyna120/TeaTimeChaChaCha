@@ -55,7 +55,7 @@
 			<input type="password" class="input" placeholder="비밀번호" name="member_pwd" maxlength="20"> 
 		</div> 
 		<input type="button" class="bt_login" value="로그인" onclick="loginCheck()">&nbsp;
-		<input type="button" class="bt_join" value="회원가입" onclick="location.href='MainForm.jsp?contentPage=JoinLogin/JoinForm.jsp'">
+		<input type="button" class="bt_join" value="회원가입" onclick="location.href='MainForm.jsp?contentPage=JoinLogin/JoinForm.jsp&title=JOIN'">
 		</form> 
 		<%}%>
 	</div>

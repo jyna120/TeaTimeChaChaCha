@@ -1,33 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder" %>
 <!DOCTYPE html>
 <html>
 <head>
 <%
 	String id = (String)session.getAttribute("idKey");
-	String title = "¼Ò°³";
-	int value=2;
+	request.setCharacterEncoding("UTF-8");
 %>
-<script type="text/javascript">
-	function titleChange(value){
-		switch(value){
-		case 1: document.getElementById("headerTitle").value = "Â÷"
-        	break;
-   		case 2: title ="Â÷";
-        	break;
-   		case 3: title ="Ä«Æä";
-    		break;
-   		case 4: title ="ÈÄ±â";
-			break;
-   		case 5: title = null;
-			break;
-  		default: title = null;
-        	break;
-		}
-		
-	}
-</script>
-<meta charset="EUC-KR">
+
+<meta charset="UTF-8">
 
 <title>Menu</title>
 </head>
@@ -35,23 +17,22 @@
 <div id="nav">
 	<nav>
         <ul>
-            <li><a href="MainForm.jsp?contentPage=Home/home.jsp" onclick="titleChange(1)">¼Ò°³</a></li>
+            <li><a href="MainForm.jsp?contentPage=Home/home.jsp&title=HOME">ì†Œê°œ</a></li>
             <li><a>|</a></li>
-            <li><a href="MainForm.jsp?contentPage=Tea/TeaForm.jsp" onclick="titleChange(2)">Â÷</a></li>
+            <li><a href="MainForm.jsp?contentPage=Tea/TeaForm.jsp&title=TEA">ì°¨</a></li>
             <li><a>|</a></li>
-            <li><a href="MainForm.jsp?contentPage=Cafe/cafe.jsp">Ä«Æä</a></li>
+            <li><a href="MainForm.jsp?contentPage=Cafe/cafe.jsp&title=CAFE">ì¹´í˜</a></li>
             <li><a>|</a></li>
-            <li><a href="MainForm.jsp?contentPage=Community/community.jsp">ÈÄ±â</a></li>
+            <li><a href="MainForm.jsp?contentPage=Community/community.jsp&title=REVIEW">í›„ê¸°</a></li>
             <li><a>|</a></li>
             <%if (id == null) {%>
-            <li><a href="MainForm.jsp?contentPage=JoinLogin/LoginForm.jsp">·Î±×ÀÎ</a></li>
+            <li><a href="MainForm.jsp?contentPage=JoinLogin/LoginForm.jsp&title=LOGIN">ë¡œê·¸ì¸</a></li>
             <%} else {%>
-            <li><a href="MainForm.jsp?contentPage=JoinLogin/logout.jsp">·Î±×¾Æ¿ô</a></li>
+            <li><a href="MainForm.jsp?contentPage=JoinLogin/logout.jsp">ë¡œê·¸ì•„ì›ƒ</a></li>
             <%}%>
         </ul>   
     </nav>
-    <% %>
-    <h2 id="headerTitle"><%=title%></h2>   
+
 </div>
   
 </body>
