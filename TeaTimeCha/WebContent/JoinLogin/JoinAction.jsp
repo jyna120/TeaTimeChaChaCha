@@ -35,10 +35,10 @@
 <%
 		boolean result = mgr.insertMember(bean);
 		String msg = "회원가입에 실패 하였습니다.";
-		String location = "JoinForm.jsp";
+		String location = "MainForm.jsp?contentPage=JoinLogin/JoinForm.jsp";
 		if(result){
 			msg = "회원가입을 하였습니다.";
-			location = "LoginForm.jsp";
+			location = "MainForm.jsp?contentPage=JoinLogin/LoginForm.jsp";
 		}
 %>
 <script>

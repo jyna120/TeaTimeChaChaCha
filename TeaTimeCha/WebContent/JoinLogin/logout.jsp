@@ -4,5 +4,5 @@
 %>
 <script>
    alert('로그아웃 되었습니다.');
-   location.href="LoginForm.jsp";
+   location.href="MainForm.jsp?contentPage=JoinLogin/LoginForm.jsp";
 </script>
