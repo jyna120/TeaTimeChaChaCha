@@ -13,7 +13,7 @@
 </script>
 </head>
 <body>
-<div id="section" style="text-align: center; width:100%; height:600px; ">
+<div id="section" style="text-align: center; width:100%; ">
 	<div id="table">
 	<table width="100%" cellpadding="2" cellspacing="0">
 		<div class="dayTea">
@@ -30,7 +30,7 @@
 		</div>
 		<!-- line -->
 		<div class="line"></div>
-		<tbody align="center" height="100%">
+		<tbody align="center" >
 			<tr>
 				<td width="50%"><img src="https://wildernessandcruises.com/wp-content/uploads/2020/11/pexels-mareefe-1417945-768x528.jpg"
 				size="cover"></td>
