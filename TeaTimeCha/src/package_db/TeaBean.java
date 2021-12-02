@@ -5,6 +5,7 @@ public class TeaBean {
 	private String tea_type;
 	private String tea_taste;
 	private String tea_effect;
+	private String tea_image;
 	
 	public String getTea_name() {
 		return tea_name;
@@ -18,6 +19,10 @@ public class TeaBean {
 	public String getTea_effect() {
 		return tea_effect;
 	}
+	public String getTea_image() {
+		return tea_image;
+	}
+	
 	public void setTea_name(String tea_name) {
 		this.tea_name = tea_name;
 	}
@@ -29,5 +34,8 @@ public class TeaBean {
 	}
 	public void setTea_effect(String tea_effect) {
 		this.tea_effect = tea_effect;
+	}
+	public void setTea_image(String tea_image) {
+		this.tea_image = tea_image;
 	}
 }

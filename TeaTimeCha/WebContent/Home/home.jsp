@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="java.util.*, package_db.*"%>
+<jsp:useBean id="teaMgr" class="package_db.TeaMgrPool" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +16,18 @@
 <div id="section" style="text-align: center; width:100%; height:600px; ">
 	<div id="table">
 	<table width="100%" cellpadding="2" cellspacing="0">
-		<h4 style="color:#CCD5AE; margin:10px;">오늘의 차 추천</h4>
+		<div class="dayTea">
+			<p>오늘의 차 추천</p><br/>
+			<% 					
+				Vector<TeaBean> vlist = teaMgr.getTeaList();
+				int counter = vlist.size();
+				int r  = (int)(Math.random()*counter);
+				TeaBean teaBean =vlist.get(r);
+			%>
+			<p class="teaRandom"><%=teaBean.getTea_name()%></p>
+			한잔 어떠세요?<br/><br/>
+			<a class="teaMore" href="MainForm.jsp?contentPage=Tea/teaInfo.jsp&title=TEA&c=<%=r%>">>> 더보기</a>		
+		</div>
 		<!-- line -->
 		<div class="line"></div>
 		<tbody align="center" height="100%">

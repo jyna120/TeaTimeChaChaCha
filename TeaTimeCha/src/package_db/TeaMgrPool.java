@@ -32,6 +32,7 @@ public class TeaMgrPool {
 			 bean.setTea_type (rs.getString("tea_type"));
  			 bean.setTea_taste (rs.getString("tea_taste"));
  			 bean.setTea_effect (rs.getString("tea_effect"));
+ 			 bean.setTea_image (rs.getString("tea_image"));
 
  			vlist.addElement(bean);
           }
