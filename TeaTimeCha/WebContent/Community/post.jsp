@@ -13,24 +13,31 @@
 <title>JSP Board</title>
 <link href="headerStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
+<style>
+button{
+width:60px;
+border:3px solid #E9EDC9;
+border-radius: 5px;
+background:#E9EDC9}
+</style>
 </head>
 <body bgcolor="#CCD5AE">
 <div align="center" >
 
-<div id="header" >
+<!-- div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
-        <h2 id="headerTitle"><%=title%></h2>
+        <h2 id="headerTitle"><%=title%></h2-->
         
 <div style="background:white;height:350px;padding:5%;">
-<form name="postFrm" method="post" action="/ch15/boardPostServlet" enctype="multipart/form-data">
+<form name="postFrm" method="post" action="Community/boardPostServlet" enctype="multipart/form-data">
 <table width="600" cellpadding="3" align="center">
 	<tr>
 		<td align=center>
 		<table align="center">
 			<tr>
-				<td width="10%">성 명</td>
-				<td width="90%">
+				<td width="20%">성 명</td>
+				<td width="80%">
 				<input name="name" size="10" maxlength="8"></td>
 			</tr>
 			<tr>
@@ -43,7 +50,7 @@
 				<td><textarea name="content" rows="10" cols="50"></textarea></td>
 			</tr>
 			<tr>
-				<td>비밀 번호</td>
+				<td>비밀번호</td>
 				<td><input type="password" name="pass" size="15" maxlength="15"></td>
 			</tr>
 			
@@ -62,9 +69,9 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					 <input type="submit" value="등록" >
-					 <input type="reset" value="다시쓰기">
-					 <input type="button" value="리스트" onClick="javascript:location.href='list.jsp'">
+					 <button type="submit">등록</button>
+					 <button type="reset" >다시쓰기</button> <!-- onClick="javascript:location.href='list.jsp'" -->
+					 <button type="button"  onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY'">리스트</button> 
 				</td>
 			</tr>
 		</table>

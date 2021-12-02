@@ -33,6 +33,18 @@
 <title>후기게시판</title>
 <link href="headerStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
+<style>
+td{
+border-right:none;
+border-left:none;
+border-top:none
+}
+button{
+width:50px;
+border:3px solid #E9EDC9;
+border-radius: 5px;
+background:#E9EDC9}
+</style>
 <script type="text/javascript">
 	function list(){
 	    document.listFrm.submit();
@@ -47,10 +59,10 @@
 <body bgcolor="#CCD5AE"  >
 
 <div >
-        <div id="header" >
+        <!--div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
-        <h2 id="headerTitle"><%=title%></h2>
+        <h2 id="headerTitle"><%=title%></h2-->
         
         <div  style="background:white; width: 100%;float:center;padding-top:3%;">
         <div style="background:#CCD5AE; width: 100%;float:center;padding-top:3%;"> 
@@ -99,11 +111,11 @@
  </tr>
  <tr>
   <td align="center" colspan="2"> 
- <hr/>
- <button type="button" onclick="location.href='javascript:list()' "style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">리스트</button>
- <button type="button" onclick="location.href='update.jsp?nowPage=<%=nowPage%>&num=<%=num%>' "style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">수정</button>
- <button type="button" onclick="location.href='reply.jsp?nowPage=<%=nowPage%>' "style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">답변</button>
- <button type="button" onclick="location.href='delete.jsp?nowPage=<%=nowPage%>&num=<%=num%>' "style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">삭제</button>
+ <hr/><!-- onclick="location.href='javascript:list()' "/location.href='update.jsp?nowPage=<%=nowPage%>&num=<%=num%>'  reply.jsp?nowPage=<%=nowPage%>-->
+ <button type="button" onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=Community'">리스트</button>
+ <button type="button" onclick="location.href = 'MainForm.jsp?contentPage=Community/update.jsp&title=EDIT&nowPage=<%=nowPage%>&num=<%=num%>'">수정</button>
+ <button type="button" onclick="location.href ='MainForm.jsp?contentPage=Community/reply.jsp&nowPage=<%=nowPage%>' ">답변</button>
+ <button type="button" onclick="location.href='MainForm.jsp?contentPage=Community/delete.jsp&title=DELETE&nowPage=<%=nowPage%>&num=<%=num%>' ">삭제</button>
 
   </td>
  </tr>
@@ -118,15 +130,13 @@
 	<input type="hidden" name="filename">
 </form>
 
-<form name="listFrm" method="post" action="list.jsp">
+<form name="listFrm" method="post" action="MainForm.jsp?contentPage=Community/list.jsp&title=REVIEW">
 	<input type="hidden" name="nowPage" value="<%=nowPage%>">
 	<%if(!(keyWord==null || keyWord.equals(""))){ %>
 	<input type="hidden" name="keyField" value="<%=keyField%>">
 	<input type="hidden" name="keyWord" value="<%=keyWord%>">
 	<%}%>
 </form>
-        
-        <div id="footer"> 하단 </div>
  </div>
 </body>
 </html>

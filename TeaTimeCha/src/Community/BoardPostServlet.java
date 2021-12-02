@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-//@WebServlet("ch15/boardPost")
+@WebServlet("/Community/boardPostServlet")
+//@WebServlet("Community/boardPost")
 public class BoardPostServlet extends HttpServlet {
 	
 

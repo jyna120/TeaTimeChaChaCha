@@ -49,10 +49,10 @@
 </script>
 </head>
 <body bgcolor="#CCD5AE">
-<div id="header" >
+<!--div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
-        <h2 id="headerTitle"><%=title%></h2>
+        <h2 id="headerTitle"><%=title%></h2-->
 	<div align="center">
 		<br/><br/>
 		

@@ -22,6 +22,13 @@
 <title>JSP Board</title>
 <link href="headerStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
+<style>
+button{
+width:60px;
+border:3px solid #E9EDC9;
+border-radius: 5px;
+background:#E9EDC9}
+</style>
 <script>
 	function check() {
 	   if (document.updateFrm.pass.value == "") {
@@ -34,14 +41,14 @@
 </script>
 </head>
 <body bgcolor="#CCD5AE">
-		<div id="header" >
+		<!--div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
-        <h2 id="headerTitle"><%=title%></h2>
+        <h2 id="headerTitle"><%=title%></h2-->
         
 <div align="center" style="background:white;height:250px;padding:5%;">
  		
-<form name="updateFrm" method="post" action="boardUpdate">
+<form name="updateFrm" method="post" action="./Community/boardUpdate">
 <table width="600" cellpadding="7">
  <tr>
   <td>
@@ -73,9 +80,12 @@
     </tr>
 	<tr>
      <td colspan="2">
+     <button type="button" onclick="check()">수정완료</button>
+ 	 <button type="reset" onclick="">다시수정</button>
+ 	 <button type="button" onclick="history.go(-1) ">뒤로</button>
+
 	  <input type="button" value="수정완료" onClick="check()">
-      <input type="reset" value="다시수정"> 
-      <input type="button" value="뒤로" onClick="history.go(-1)">
+      
 	 </td>
     </tr> 
    </table>

@@ -39,7 +39,9 @@ public class BoardUpdateServlet extends HttpServlet {
 
 		if (upPass.equals(inPass)) {
 			bMgr.updateBoard(upBean);
-			String url = "read.jsp?nowPage=" + nowPage + "&num=" + upBean.getNum();
+			
+			String url = "MainForm.jsp?contentPage=Community/read.jsp&title=REVIEW&nowPage=" + nowPage + "&num=" + upBean.getNum();
+			//String url = "read.jsp?nowPage=" + nowPage + "&num=" + upBean.getNum();
 			response.sendRedirect(url);
 		} else {
 			out.println("<script>");

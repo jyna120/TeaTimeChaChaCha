@@ -5,7 +5,6 @@
 <jsp:useBean id="bMgr" class="Community.BoardMgr" />
 <%
 	request.setCharacterEncoding("UTF-8");
-    
 	String title = "review";
 	String t = request.getParameter("title");
     if (t != null) {
@@ -64,12 +63,17 @@ border-right:none;
 border-left:none;
 border-top:none
 }
+button{
+width:60px;
+border:3px solid #E9EDC9;
+border-radius: 5px;
+background:#E9EDC9}
 </style>
 <link href="style.css" rel="stylesheet" type="text/css">
 <link href="headerStyle.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function list() {
-		document.listFrm.action = "list.jsp";
+		//document.listFrm.action ="list.jsp";
 		document.listFrm.submit();
 	}
 	
@@ -85,7 +89,7 @@ border-top:none
 	
 	function read(num){
 		document.readFrm.num.value=num;
-		document.readFrm.action="./read.jsp";
+		document.readFrm.action='Community/read.jsp';
 		document.readFrm.submit();
 	}
 	
@@ -101,14 +105,14 @@ border-top:none
 </head>
 <body bgcolor="#CCD5AE">
 <div id="wrap">
-<div id="header" >
-            <jsp:include page="menubar.jsp" />
+<!--div id="header" >
+            <  jsp:include page="menubar.jsp" />
         </div>
-        <h2 id="headerTitle"><%=title%></h2>
+        <h2 id="headerTitle"><%=title%></h2-->
   <div align="center" style="background:white;height:400px;padding:20px;">
 	
 	<div id="searchBar"  style="width:500px;float:right;">
-	<form  name="searchFrm"  method="get" action="list.jsp">
+	<form  name="searchFrm"  method="get" action="Community/list.jsp">
 	<table width="600" cellpadding="4" cellspacing="0" >
  		<tr>
   			<td align="center" valign="bottom">
@@ -117,9 +121,11 @@ border-top:none
     				<option value="subject"> 제 목</option>
     				<option value="content"> 내 용</option>
    				</select>
-   				<input size="16" name="keyWord" style="width:300px;border:3px solid #E9EDC9;border-radius:2px;">
-   				<input type="button"  value="찾기" onClick="javascript:check()" style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">
+   				<input size="16" name="keyWord"style="width:300px;border:3px solid #E9EDC9;border-radius:2px;">
+   				<button type="button"onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=REVIEW'">찾기</button>
+   				<input type="button"  value="찾기" onClick="javascript:check()" >
    				<input type="hidden" name="nowPage" value="1">
+   				
   			</td>
  		</tr>
 	</table>
@@ -166,7 +172,7 @@ border-top:none
 						<td align="center">
 							<%=totalRecord-((nowPage-1)*numPerPage)-i%>
 						</td>
-						<td>
+						<td><!-- 답변 은 depthdl 0보다 큼-->
 						<%
 							  if(depth>0){
 								for(int j=0;j<depth;j++){
@@ -174,7 +180,8 @@ border-top:none
 									}
 								}
 						%>
-						  <a style="text-decoration-line:none;color:black"href="javascript:read('<%=num%>')"><%=subject%></a>
+						  <a style="text-decoration-line:none;color:black"onclick="location.href = 'MainForm.jsp?contentPage=Community/read.jsp&title=REVIEW&num=<%=num%>'"><%=subject%></a>
+						  <!--a style="text-decoration-line:none;color:black"href="javascript:read('<%=num%>')"><%=subject%></a-->
 						</td>
 						<td align="center"><%=name%></td>
 						<td align="center"><%=regdate%></td>
@@ -211,15 +218,15 @@ border-top:none
    				<%}%>
  				<!-- 페이징 및 블럭 처리 End-->
 				</td>
-				<td align="right" >
-					<button type="button" onclick="location.href='post.jsp' "style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">글쓰기</button>
-					<button type="button" onclick="location.href='javascript:list()' "style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">처음으로</button>
+				<td align="right" > <!-- onclick="location.href='post.jsp' " -->
+					<button type="button"  onclick="location.href = 'MainForm.jsp?contentPage=Community/post.jsp&title=POST'">글쓰기</button>
+					<button type="button" onclick="location.href='javascript:list()' ">처음으로</button>
 				</td>
 			</tr>
 		</table>
 	<hr width="600"/>
 	
-	<form name="listFrm" method="post">
+	<form name="listFrm" method="post" action="MainForm.jsp?contentPage=Community/list.jsp&title=REVIEW">
 		<input type="hidden" name="reload" value="true"> 
 		<input type="hidden" name="nowPage" value="1">
 	</form>
