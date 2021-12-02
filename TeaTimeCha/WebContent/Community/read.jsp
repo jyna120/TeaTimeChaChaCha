@@ -84,8 +84,7 @@
      <%=filename%></td>
      </tr>
      <tr>
-     <td><img  width="300%"src="https://wildernessandcruises.com/wp-content/uploads/2020/11/pexels-mareefe-1417945-768x528.jpg"
-				size="cover"></td>
+     <td><img  width="100%"src="fileupload/tt.png"></td>
      
      <!--td> 이미지 가져오기</td-->
    </tr>

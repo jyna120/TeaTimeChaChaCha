@@ -1,9 +1,19 @@
 <%@ page contentType="text/html; charset=EUC-KR"%>
 <%@page import="Community.BoardBean"%>
 <jsp:useBean id="bMgr" class="Community.BoardMgr" />
+<%
+	request.setCharacterEncoding("UTF-8");
+    
+	String title = "게시물 삭제하기";
+	String t = request.getParameter("title");
+    if (t != null) {
+    	title = new String(t.getBytes("8859_1"), "UTF-8");   	
+    }
+%>
 <html>
 <head>
 <title>JSP Board</title>
+<link href="headerStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
 <%
 	request.setCharacterEncoding("EUC-KR");
@@ -19,6 +29,7 @@
 			response.sendRedirect(url);
 		} else {
 %>
+
 <script type="text/javascript">
 	alert("입력하신 비밀번호가 아닙니다.");
 	history.back();
@@ -37,17 +48,23 @@
 	}
 </script>
 </head>
-<body bgcolor="#FFFFCC">
+<body bgcolor="#CCD5AE">
+<div id="header" >
+            <jsp:include page="menubar.jsp" />
+        </div>
+        <h2 id="headerTitle"><%=title%></h2>
 	<div align="center">
 		<br/><br/>
+		
+		<div align="center" style="background:white;height:250px;padding:20px;">
 		<table width="600" cellpadding="3">
 			<tr>
-				<td bgcolor=#dddddd height="21" align="center">
-					사용자의 비밀번호를 입력해주세요.
-				</td>
+			<td><font color="#CCD5AE"><h1  align="center">사용자의 비밀번호를 입력해주세요.</h1></font></td>
+				
 			</tr>
 		</table>
 		<form name="delFrm" method="post" action="delete.jsp">
+			<br/><br/>
 			<table width="600" cellpadding="2">
 				<tr>
 					<td align="center">
@@ -60,11 +77,12 @@
 							<tr>
 								<td><hr size="1" color="#eeeeee"/></td>
 							</tr>
+							
 							<tr>
-								<td align="center">
-									<input type="button" value="삭제완료" onClick="check()"> 
-									<input type="reset" value="다시쓰기">
-									<input type="button" value="뒤로" onClick="history.go(-1)">
+								<td align="center" >
+									<input type="button" value="삭제완료" onClick="check()"style="width:60px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9"> 
+									<input type="reset" value="다시쓰기"style="width:60px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">
+									<input type="button" value="뒤로" onClick="history.go(-1)"style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">
 								</td>
 							</tr>
 						</table>
@@ -76,5 +94,6 @@
 		</form>
 	</div>
 	<%}%>
+	</div>
 </body>
 </html>

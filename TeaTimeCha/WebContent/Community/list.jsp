@@ -6,7 +6,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
     
-	String title = "후기게시판";
+	String title = "review";
 	String t = request.getParameter("title");
     if (t != null) {
     	title = new String(t.getBytes("8859_1"), "UTF-8");   	
@@ -85,7 +85,7 @@ border-top:none
 	
 	function read(num){
 		document.readFrm.num.value=num;
-		document.readFrm.action="read.jsp";
+		document.readFrm.action="./read.jsp";
 		document.readFrm.submit();
 	}
 	
@@ -101,13 +101,10 @@ border-top:none
 </head>
 <body bgcolor="#CCD5AE">
 <div id="wrap">
-        <div id="header" >
+<div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
-       
-            <h2 id="headerTitle"><%=title%></h2> 
-       
-
+        <h2 id="headerTitle"><%=title%></h2>
   <div align="center" style="background:white;height:400px;padding:20px;">
 	
 	<div id="searchBar"  style="width:500px;float:right;">
@@ -215,8 +212,8 @@ border-top:none
  				<!-- 페이징 및 블럭 처리 End-->
 				</td>
 				<td align="right" >
-					<a  style="text-decoration-line:none;color:black"href="post.jsp">[글쓰기]</a> 
-					<a  style="text-decoration-line:none;color:black"href="javascript:list()">[처음으로]</a>
+					<button type="button" onclick="location.href='post.jsp' "style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">글쓰기</button>
+					<button type="button" onclick="location.href='javascript:list()' "style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">처음으로</button>
 				</td>
 			</tr>
 		</table>
@@ -234,7 +231,6 @@ border-top:none
 	</form>
 </div>
   
-        <div id="footer"> 하단 </div>
  </div>
 
 </body>
