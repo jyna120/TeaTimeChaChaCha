@@ -1,47 +1,195 @@
 @charset "EUC-KR";
 
-html, body {
-			margin: 0;
-			padding: 0;
-			width: 100%;
-			height: 100%;
-			
-}
- * { 
+* { 
  	margin: 0; 
  	padding: 0; 
  } 
+
+@font-face {
+    font-family: 'Eulyoo1945-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
  
- ul{
- 	text-align: right;
+
+html,body{ 
+	font-family: 'Eulyoo1945-SemiBold';
+	font-size: 17px;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* TeaForm */
+
+.teaPreview{
+	display: block;
+	width: 150px;
+	height: 150px;
+	margin : 10px auto;
+}
+
+
+.tea_container{
+	display: flex;
+	flex-wrap: wrap;
+ 	margin: 50px auto; 
+	height: auto; 
+	max-width: 1000px;
+}
+
+.tea_box{
+	display:block;
+	width: 200px;
+	height: 200px;
+	text-align: center; 
+	background-color: #f8f9e1;
+	margin : 20px;
+	position: relative;
+}
+
+.teaText{
+	margin : auto;
+}
+
+/* TeaInfo */
+
+.teaImg{
+	display: block;
+	width: 300px;
+	height: 300px;
+	margin : auto;
+}
+
+.teaTable{
+	width: 70%;
+	height: 100%;
+	align: center;
+	margin: 100px auto; 
+}
+
+.teaTr, .teaTd{
+	border-bottom: 1px solid #CCD5AE;
+    padding: 10px;
+	text-align: center;
+	align: center;
+	margin: 10px auto; 
+}
+
+/* JoinForm */
+
+.join_container { 
+ 	display: block; 
+ 	margin: 50px auto; 
+ 	text-align: center; 
+ } 
+ .join_container h2 { 
+ 	font-size: 50px; 
+ 	margin-bottom: 50px;
+ } 
+ .join_container h3 { 
+ 	font-size: 25px; 
+ } 
+ .joinID, 
+ .joinPassword, 
+ .joinName, 
+ .joinNickname { 
+ 	margin-top: 20px; 
+ 	margin-bottom: 30px; 
+ } 
+ .input { 
+ 	padding: 5px; 
+ 	width: 300px; 
+ 	line-height: 30px; 
+ 	font-size: 20px; 
+ 	border: none; 
+ 	border-bottom: solid 1px rgba(0, 0, 0, 1); 
+ } 
+ 
+ .bt_join { 
+ 	font-size: 20px; 
+ 	padding: 5px; 
+ 	background-color: rgba(255, 255, 255, 1); 
+ 	border: none; 
+ 	border: solid 1px rgba(0, 0, 0, 1); 
+ 	cursor: pointer; 
  }
  
- li
-{
-	display : inline-block;
-	margin-right: 10px;
-	
+
+/* LoginForm */
+.login_containers { 
+	display: block; 
+	margin: 100px auto; 
+	text-align: center; 
+
 } 
- a { 
-	text-decoration:none ;
-	color:white;
-}
-#header{
-	background-color:#CCD5AE; 
-	width: 100%;
-	height: 20%;
-	position:relative;
+
+.login_containers h2 { 
+	font-size: 50px; 
+	margin-bottom: 80px; 
+
+} 
+
+.login_containers h3 { 
+	font-size: 25px; 
+} 
+
+.loginID, .loginPassword { 
+	margin-top: 20px; 
+	margin-bottom: 30px; 
+} 
+
+.input {
+	padding: 5px; 
+	width: 300px; 
+	line-height: 30px; 
+	font-size: 20px;
+	border: none; 
+	border-bottom: solid 1px rgba(0, 0, 0, 1); 
+} 
+
+.bt_login { 
+	font-size: 20px; 
+	padding: 5px; 
+	background-color: rgba(255, 255, 255, 1); 
+	border: none; 
+	border: solid 1px rgba(0, 0, 0, 1); 
+	cursor: pointer; 
 }
 
-#headerTitle{
-	color:#FCF8DE;
-	text-align: center 
+.bt_join { 
+	font-size: 20px; 
+	padding: 5px; 
+	background-color: rgba(255, 255, 255, 1); 
+	border: none; 
+	border: solid 1px rgba(0, 0, 0, 1); 
+	cursor: pointer; 
 }
 
-#footer {
-	color:white;
-	background-color:#CCD5AE; 
-	width: 100%;
-	height: 15%;
-	position:relative;
+.alogout {
+	color: black;
 }
+/*√‚√≥: https://group11.tistory.com/9 [Jo's]*/
+
+/* home */
+
+.dayTea{
+	color:#bac691; 
+	background-color: #fdfdf7;
+	padding:10px;
+	
+}
+
+.teaRandom{
+	font-size: 25px; 
+	color:#a3b669;
+	margin:10px;
+	display:inline;
+}
+
+.teaMore{
+	color:#CCD5AE;
+}
+

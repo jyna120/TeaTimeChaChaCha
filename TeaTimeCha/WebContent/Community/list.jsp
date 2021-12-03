@@ -70,7 +70,7 @@ border-radius: 5px;
 background:#E9EDC9}
 </style>
 <link href="style.css" rel="stylesheet" type="text/css">
-<link href="headerStyle.css" rel="stylesheet" type="text/css">
+<link href="ChaStyle.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function list() {
 		//document.listFrm.action ="list.jsp";
