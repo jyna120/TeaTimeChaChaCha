@@ -9,7 +9,10 @@ html, body {
 }
  * { 
  	margin: 0; 
- 	padding: 0; 
+ 	padding: 0;
+ 	box-sizing: border-box; /* 오페라(Opera) */
+	-moz-box-sizing: border-box; /* 파이어폭스(Firefox)*/
+	-webkit-box-sizing: border-box; /* 웹킷(Webkit) & 크롬(Chrome) */
  } 
  
  ul{
@@ -42,8 +45,9 @@ html, body {
 	color:white;
 	background-color:#CCD5AE; 
 	width: 100%;
-	height: 15%;
-	position:relative;
+	height: 20%;
+	text-align: right;
+	position:relative;	
 }
 =======
 @font-face {
@@ -101,7 +105,9 @@ html, body {
 	color:white;
 	background-color:#CCD5AE; 
 	width: 100%;
-	height: 15%;
+	height: 20%;
+	text-align: right;
 	position:relative;
+	Padding: 10px;
 }
 >>>>>>> branch 'main' of https://github.com/yone521/TeaTimeChaChaCha.git

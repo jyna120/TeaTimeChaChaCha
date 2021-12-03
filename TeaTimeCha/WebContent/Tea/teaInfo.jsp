@@ -52,5 +52,8 @@
  		</tr>
  		
  	</table>
+ 	<div class = "backDiv">
+ 	<button class="teaBack" onclick="location.href='MainForm.jsp?contentPage=Tea/TeaForm.jsp&title=TEA'">뒤로가기</button>
+ 	</div>
 </body>
 </html>

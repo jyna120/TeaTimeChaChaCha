@@ -15,7 +15,7 @@
     if (a != null) {
          contentPage = a;
     }
-	String title = "HOME";
+	String title = "TEA TIME";
 	String t = request.getParameter("title");
     if (t != null) {
     	title = new String(t.getBytes("8859_1"), "UTF-8");   	
@@ -35,7 +35,10 @@
         <div id="main">
             <jsp:include page="<%=contentPage%>" />
         </div>
-        <div id="footer"> 하단 </div>
+        <div id="footer"> 
+       		티타임 차차차 <br/>
+        	Developers 하나의 이변 from 성신여자대학교 
+        </div>
  </div>
 
 </body>
