@@ -1,4 +1,5 @@
 @charset "EUC-KR";
+<<<<<<< HEAD
 
 @font-face {
     font-family: 'GmarketSansMedium';
@@ -18,6 +19,8 @@
 	font-family: Eulyoo1945-SemiBold
 }
 
+=======
+>>>>>>> branch 'main' of https://github.com/yone521/TeaTimeChaChaCha.git
 .line {
 	width:100%; height:1px; background:#CCD5AE;
 }
