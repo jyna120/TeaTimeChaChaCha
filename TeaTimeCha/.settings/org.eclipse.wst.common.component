@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="TeaTimeChaChaCha">
+    <wb-module deploy-name="TeaTimeCha">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="TeaTimeChaChaCha"/>
-        <property name="java-output-path" value="/TeaTimeChaChaCha/bin"/>
+        <property name="context-root" value="TeaTimeCha"/>
+        <property name="java-output-path" value="/TeaTimeCha/build/classes"/>
     </wb-module>
 </project-modules>
