@@ -23,11 +23,6 @@ background:#E9EDC9}
 </head>
 <body bgcolor="#CCD5AE">
 <div align="center" >
-
-<!-- div id="header" >
-            <jsp:include page="menubar.jsp" />
-        </div>
-        <h2 id="headerTitle"><%=title%></h2-->
         
 <div style="background:white;height:350px;padding:5%;">
 <form name="postFrm" method="post" action="Community/boardPostServlet" enctype="multipart/form-data">
@@ -69,9 +64,9 @@ background:#E9EDC9}
 			</tr>
 			<tr>
 				<td colspan="2">
-					 <button type="submit">등록</button>
-					 <button type="reset" >다시쓰기</button> <!-- onClick="javascript:location.href='list.jsp'" -->
-					 <button type="button"  onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY'">리스트</button> 
+					 <button type="submit" value="등록" >등록</button>
+					 <button type="reset" value="다시쓰기">다시쓰기</button>
+					 <button type="button" value="리스트" onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY'">리스트</button>
 				</td>
 			</tr>
 		</table>
