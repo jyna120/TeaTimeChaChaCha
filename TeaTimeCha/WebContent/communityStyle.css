@@ -1,7 +1,14 @@
-@charset "EUC-KR";
 
-<<<<<<< HEAD
-html, body {
+button{
+	width:60px;
+	border:3px solid #E9EDC9;
+	border-radius: 5px;
+	background:#E9EDC9;
+}
+
+html, body 
+{	font-family: 'Eulyoo1945-SemiBold';
+	font-size: 17px;
 			margin: 0;
 			padding: 0;
 			width: 100%;
@@ -14,43 +21,7 @@ html, body {
 	-moz-box-sizing: border-box; /* 파이어폭스(Firefox)*/
 	-webkit-box-sizing: border-box; /* 웹킷(Webkit) & 크롬(Chrome) */
  } 
- 
- ul{
- 	text-align: right;
- }
- 
- li
-{
-	display : inline-block;
-	margin-right: 10px;
-	
-} 
- a { 
-	text-decoration:none ;
-	color:white;
-}
-#header{
-	background-color:#CCD5AE; 
-	width: 100%;
-	height: 20%;
-	position:relative;
-}
-
-#headerTitle{
-	color:#FCF8DE;
-	text-align: center 
-}
-
-#footer {
-	color:white;
-	background-color:#CCD5AE; 
-	width: 100%;
-	height: 20%;
-	text-align: right;
-	position:relative;	
-}
-=======
-@font-face {
+ @font-face {
 	font-family: 'Eulyoo1945-SemiBold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-SemiBold.woff') format('woff');
     /*
@@ -60,27 +31,9 @@ html, body {
     font-weight: normal;
     font-style: normal;
 }
-body{ font-family: 'GmarketSansMedium'; }
-
-html, body {
-	/*추가*/
-	font-family: 'Eulyoo1945-SemiBold';
-	font-size: 17px;
-	
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	
-}
- * { 
- 	margin: 0; 
- 	padding: 0; 
- } 
  
  ul{
  	text-align: right;
- 	
  }
  
  li
@@ -97,7 +50,7 @@ html, body {
 #header{
 	background-color:#CCD5AE; 
 	width: 100%;
-	height: 20%;
+	height: 7%;
 	position:relative;
 	Padding: 5px;
 }
@@ -113,9 +66,13 @@ html, body {
 	color:white;
 	background-color:#CCD5AE; 
 	width: 100%;
-	height: 20%;
+	height: 10%;
 	text-align: right;
 	position:relative;
-	Padding: 10px;
+	Padding: 10px;	
 }
->>>>>>> branch 'main' of https://github.com/yone521/TeaTimeChaChaCha.git
+button{
+width:60px;
+border:3px solid #E9EDC9;
+border-radius: 5px;
+background:#E9EDC9}

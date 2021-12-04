@@ -8,16 +8,16 @@
 <html>
 <head>
 <title>JSPBoard</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="../communityStyle.css" rel="stylesheet" type="text/css">
 </head>
-<body bgcolor="#FFFFCC">
-<div align="center">
+<body bgcolor="#CCD5AE">
+<div id="header" >
+            <jsp:include page="menubar.jsp" />
+        </div>
+        <h2 id="headerTitle">REPLY</h2>
+<div align="center"  style="background:white;height:600px;padding:20px;">
 <br><br>
- <table width="600" cellpadding="3">
-  <tr>
-   <td bgcolor="#CCCC00" height="21" align="center">답변하기</td>
-  </tr>
-</table>
+
 <form method="post" action="boardReply" >
 <table width="600" cellpadding="7">
  <tr>
@@ -52,9 +52,10 @@
     </tr>
 	<tr> 
      <td colspan="2">
-	  <input type="submit" value="답변등록" >
-      <input type="reset" value="다시쓰기">
-      <input type="button" value="뒤로" onClick="history.back()"></td>
+	  <button type="submit" value="답변등록" >답변등록</button>
+      <button type="reset" value="다시쓰기">다시쓰기</button>
+      <button type="button" value="뒤로" onClick="history.back()">뒤로</button>
+      </td>
     </tr> 
    </table>
   </td>
@@ -67,5 +68,9 @@
  <input type="hidden" name="depth" value="<%=bean.getDepth()%>">
 </form> 
 </div>
+<div id="footer"> 
+       		티타임 차차차 <br/>
+        	Developers 하나의 이변 from 성신여자대학교 
+        </div>
 </body>
 </html>

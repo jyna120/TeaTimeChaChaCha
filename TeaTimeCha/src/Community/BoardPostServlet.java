@@ -25,7 +25,8 @@ public class BoardPostServlet extends HttpServlet {
 		BoardMgr bMgr = new BoardMgr();
 		bMgr.insertBoard(request);
 		System.out.println("SUCCESS3");///Community/list.jsp
-		response.sendRedirect("../MainForm.jsp?contentPage=Community/list.jsp");//../list.jsp
+		//../MainForm.jsp?contentPage=Community/list.jsp
+		response.sendRedirect("community.jsp");//../list.jsp
 		
 	}
 	

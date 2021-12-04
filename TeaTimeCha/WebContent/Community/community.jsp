@@ -4,16 +4,16 @@
 
 <jsp:useBean id="bMgr" class="Community.BoardMgr" />
 <%
-	//request.setCharacterEncoding("UTF-8");
-	String title = "COMMUNITY";
+	request.setCharacterEncoding("UTF-8");
+    
+	String title = "후기게시판";
 	String t = request.getParameter("title");
     if (t != null) {
     	title = new String(t.getBytes("8859_1"), "UTF-8");   	
     }
 %>
-
 <%	
-	  request.setCharacterEncoding("euc-kr");
+	  request.setCharacterEncoding("EUC-KR");
 	  
       int totalRecord=0; //전체레코드수
 	  int numPerPage=20; // 페이지당 레코드 수 
@@ -36,9 +36,6 @@
 		keyWord = request.getParameter("keyWord");
 		keyField = request.getParameter("keyField");
 	}
-	////
-	System.out.println(keyWord+" "+keyField);
-	////
 	if (request.getParameter("reload") != null){
 		if(request.getParameter("reload").equals("true")) {
 			keyWord = "";
@@ -67,17 +64,12 @@ border-right:none;
 border-left:none;
 border-top:none
 }
-button{
-width:60px;
-border:3px solid #E9EDC9;
-border-radius: 5px;
-background:#E9EDC9}
 </style>
 <link href="style.css" rel="stylesheet" type="text/css">
-<link href="ChaStyle.css" rel="stylesheet" type="text/css">
+<link href="../communityStyle.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function list() {
-		//document.listFrm.action ="list.jsp";
+		document.listFrm.action = "community.jsp";
 		document.listFrm.submit();
 	}
 	
@@ -93,7 +85,7 @@ background:#E9EDC9}
 	
 	function read(num){
 		document.readFrm.num.value=num;
-		document.readFrm.action='Community/read.jsp';
+		document.readFrm.action="read.jsp";
 		document.readFrm.submit();
 	}
 	
@@ -107,16 +99,19 @@ background:#E9EDC9}
 	 }
 </script>
 </head>
-<body bgcolor="#CCD5AE" >
+<body bgcolor="#CCD5AE">
 <div id="wrap">
-<!--div id="header" >
-            <  jsp:include page="menubar.jsp" />
+        <div id="header" >
+            <jsp:include page="menubar.jsp" />
         </div>
-        <h2 id="headerTitle"><%=title%></h2-->
+       
+            <h2 id="headerTitle">COMMUNITY</h2> 
+       
+
   <div align="center" style="background:white;height:600px;padding:20px;">
 	
 	<div id="searchBar"  style="width:500px;float:right;">
-	<form  name="searchFrm"  method="get" action="Community/list.jsp">
+	<form  name="searchFrm"  method="get" action="community.jsp">
 	<table width="600" cellpadding="4" cellspacing="0" >
  		<tr>
   			<td align="center" valign="bottom">
@@ -125,11 +120,9 @@ background:#E9EDC9}
     				<option value="subject"> 제 목</option>
     				<option value="content"> 내 용</option>
    				</select>
-   				<input size="16" name="keyWord"style="width:300px;border:3px solid #E9EDC9;border-radius:2px;">
-   				<button type="button"onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY&keyField=<%=keyField%>&keyWord=<%=keyWord%>'">찾기</button>
+   				<input size="16" name="keyWord" >
    				<input type="button"  value="찾기" onClick="javascript:check()" >
    				<input type="hidden" name="nowPage" value="1">
-   				
   			</td>
  		</tr>
 	</table>
@@ -168,7 +161,6 @@ background:#E9EDC9}
 							int num = bean.getNum();
 							String name = bean.getName();
 							String subject = bean.getSubject();
-							
 							String regdate = bean.getRegdate();
 							int depth = bean.getDepth();
 							int count = bean.getCount();
@@ -177,7 +169,7 @@ background:#E9EDC9}
 						<td align="center">
 							<%=totalRecord-((nowPage-1)*numPerPage)-i%>
 						</td>
-						<td><!-- 답변 은 depthdl 0보다 큼-->
+						<td>
 						<%
 							  if(depth>0){
 								for(int j=0;j<depth;j++){
@@ -185,8 +177,7 @@ background:#E9EDC9}
 									}
 								}
 						%>
-						  <a style="text-decoration-line:none;color:black"onclick="location.href = 'MainForm.jsp?contentPage=Community/read.jsp&title=REVIEW&num=<%=num%>'"><%=subject%></a>
-						  <!--a style="text-decoration-line:none;color:black"href="javascript:read('<%=num%>')"><%=subject%></a-->
+						  <a style="text-decoration-line:none;color:black"href="javascript:read('<%=num%>')"><%=subject%></a>
 						</td>
 						<td align="center"><%=name%></td>
 						<td align="center"><%=regdate%></td>
@@ -211,9 +202,8 @@ background:#E9EDC9}
    				  if(totalPage !=0){
     			  	if (nowBlock > 1) {%>
     			  		<a style="text-decoration-line:none;color:black"href="javascript:block('<%=nowBlock-1%>')">prev...</a><%}%>&nbsp; 
-    			  		<%for ( ; pageStart < pageEnd; pageStart++){%> 
-     			     	<!-- href="javascript:pageing('<%=pageStart %>')" -->
-     			     	<a style="text-decoration-line:none;color:black"onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY&nowPage=<%=pageStart %>'"> 
+    			  		<%for ( ; pageStart < pageEnd; pageStart++){%>     <!-- javascript:pageing('<%=pageStart %>') -->
+     			     	<a style="text-decoration-line:none;color:black"href="community.jsp?&nowPage=<%=pageStart %>"> 
      					<%if(pageStart==nowPage) {%> <%}%>
      					[<%=pageStart %>] 
      					<%if(pageStart==nowPage) {%> <%}%></a> 
@@ -224,19 +214,19 @@ background:#E9EDC9}
    				<%}%>
  				<!-- 페이징 및 블럭 처리 End-->
 				</td>
-				<td align="right" > <!-- onclick="location.href='post.jsp' "//location.href='javascript:list()' /onclick="location.href = 'MainForm.jsp?contentPage=Community/post.jsp&title=POST'"-->
-					<button type="button"  onclick="location.href = 'Community/post.jsp'">글쓰기</button>
-					<button type="button" onclick="location.href='javascript:list()">처음으로</button>
+				<td align="right" >
+					<a  style="text-decoration-line:none;color:black"href="post.jsp">[글쓰기]</a> 
+					<a  style="text-decoration-line:none;color:black"href="javascript:list()">[처음으로]</a>
 				</td>
 			</tr>
 		</table>
 	<hr width="600"/>
 	
-	<form name="listFrm" method="post" action="MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY">
+	<form name="listFrm" method="post">
 		<input type="hidden" name="reload" value="true"> 
 		<input type="hidden" name="nowPage" value="1">
 	</form>
-	<form name="readFrm" method="get" >
+	<form name="readFrm" method="get">
 		<input type="hidden" name="num"> 
 		<input type="hidden" name="nowPage" value="<%=nowPage%>"> 
 		<input type="hidden" name="keyField" value="<%=keyField%>"> 
@@ -244,6 +234,10 @@ background:#E9EDC9}
 	</form>
 </div>
   
+         <div id="footer"> 
+       		티타임 차차차 <br/>
+        	Developers 하나의 이변 from 성신여자대학교 
+        </div>
  </div>
 
 </body>

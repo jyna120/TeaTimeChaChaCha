@@ -29,6 +29,6 @@ public class BoardReplyServlet extends HttpServlet {
 		bMgr.replyBoard(reBean);
 		
 		String nowPage = request.getParameter("nowPage");
-		response.sendRedirect("list.jsp?nowPage="+nowPage);
+		response.sendRedirect("community.jsp?nowPage="+nowPage);
 	}
 }

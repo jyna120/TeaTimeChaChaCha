@@ -11,7 +11,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
     
-	String title = "게시물 수정하기";
+	String title = "EDIT";
 	String t = request.getParameter("title");
     if (t != null) {
     	title = new String(t.getBytes("8859_1"), "UTF-8");   	
@@ -20,7 +20,7 @@
 <html>
 <head>
 <title>JSP Board</title>
-<link href="ChaStyle.css" rel="stylesheet" type="text/css">
+<link href="../communityStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
 <style>
 button{
@@ -41,14 +41,14 @@ background:#E9EDC9}
 </script>
 </head>
 <body bgcolor="#CCD5AE">
-		<!--div id="header" >
+		<div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
-        <h2 id="headerTitle"><%=title%></h2-->
+        <h2 id="headerTitle"><%=title%></h2>
         
-<div align="center" style="background:white;height:250px;padding:5%;">
+<div align="center" style="background:white;height:600px;padding:5%;">
  		
-<form name="updateFrm" method="post" action="./Community/boardUpdate">
+<form name="updateFrm" method="post" action="boardUpdate">
 <table width="600" cellpadding="7">
  <tr>
   <td>
@@ -84,7 +84,7 @@ background:#E9EDC9}
  	 <button type="reset" onclick="">다시수정</button>
  	 <button type="button" onclick="history.go(-1) ">뒤로</button>
 
-	  <input type="button" value="수정완료" onClick="check()">
+	  <!--input type="button" value="수정완료" onClick="check()"-->
       
 	 </td>
     </tr> 
@@ -96,5 +96,9 @@ background:#E9EDC9}
  <input type='hidden' name="num" value="<%=num%>">
 </form> 
 </div>
+ <div id="footer"> 
+       		티타임 차차차 <br/>
+        	Developers 하나의 이변 from 성신여자대학교 
+        </div>
 </body>
 </html>

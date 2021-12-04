@@ -13,7 +13,7 @@
 <html>
 <head>
 <title>JSP Board</title>
-<link href="ChaStyle.css" rel="stylesheet" type="text/css">
+<link href="../communityStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
 <%
 	request.setCharacterEncoding("EUC-KR");
@@ -25,7 +25,7 @@
 		String dbPass = bean.getPass();
 		if (inPass.equals(dbPass)) {
 			bMgr.deleteBoard(num);
-			String url = "list.jsp?nowPage=" + nowPage;
+			String url = "community.jsp?nowPage=" + nowPage;
 			response.sendRedirect(url);
 		} else {
 %>
@@ -49,10 +49,10 @@
 </script>
 </head>
 <body bgcolor="#CCD5AE">
-<!--div id="header" >
+<div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
-        <h2 id="headerTitle"><%=title%></h2-->
+        <h2 id="headerTitle">DELETE</h2>
 	<div align="center">
 		<br/><br/>
 		
@@ -80,9 +80,9 @@
 							
 							<tr>
 								<td align="center" >
-									<input type="button" value="삭제완료" onClick="check()"style="width:60px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9"> 
-									<input type="reset" value="다시쓰기"style="width:60px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">
-									<input type="button" value="뒤로" onClick="history.go(-1)"style="width:50px;border:3px solid #E9EDC9;border-radius: 5px;background:#E9EDC9">
+									<button type="button"  onClick="check()"> 삭제완료</button>
+									<button type="reset" value="다시쓰기">다시쓰기</button>
+									<button type="button" value="뒤로" onClick="history.go(-1)">뒤로</button>
 								</td>
 							</tr>
 						</table>
@@ -95,5 +95,9 @@
 	</div>
 	<%}%>
 	</div>
+	<div id="footer"> 
+       		티타임 차차차 <br/>
+        	Developers 하나의 이변 from 성신여자대학교 
+        </div>
 </body>
 </html>

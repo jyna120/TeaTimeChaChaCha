@@ -31,7 +31,7 @@
 <html>
 <head>
 <title>후기게시판</title>
-<link href="ChaStyle.css" rel="stylesheet" type="text/css">
+<link href="../communityStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
 <style>
 td{
@@ -59,10 +59,10 @@ background:#E9EDC9}
 <body bgcolor="#CCD5AE"  >
 
 <div >
-        <!--div id="header" >
+        <div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
-        <h2 id="headerTitle"><%=title%></h2-->
+        <h2 id="headerTitle">REVIEW</h2>
         
         <div  style="background:white; width: 100%;height:600px;float:center;padding-top:3%;">
         <div style="background:#CCD5AE; width: 100%;float:center;padding-top:3%;"> 
@@ -82,7 +82,7 @@ background:#E9EDC9}
   <td bgcolor="#FFFFE8" width="30%"><%=regdate%></td>
  </tr>
 <tr> 
-    <td colspan="4" height="150px"><br/><pre><%=content%></pre><br/></td>
+    <td colspan="4" height="240px"><br/><pre><%=content%></pre><br/></td>
    </tr>
    <tr> 
      <td align="center" bgcolor="#DDDDDD">첨부파일</td>
@@ -92,11 +92,12 @@ background:#E9EDC9}
   		 &nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)</font>  
   		 <%} else{%> 등록된 파일이 없습니다.<%}%>
      </td>
-     <td>
+    
+     <tr>
+      <td>
      <%=filename%></td>
      </tr>
-     <tr>
-     <td><img  width="100%"src="fileupload/tt.png"></td>
+     <td><img  width="100%"src="Community/fileupload/<%=filename%>"></td>
      
      <!--td> 이미지 가져오기</td-->
    </tr>
@@ -109,13 +110,14 @@ background:#E9EDC9}
    </table>
   </td>
  </tr>
+ 
  <tr>
-  <td align="center" colspan="2"> 
+  <td align="center" colspan="2"height="50px> 
  <hr/><!-- onclick="location.href='javascript:list()' "/location.href='update.jsp?nowPage=<%=nowPage%>&num=<%=num%>'  reply.jsp?nowPage=<%=nowPage%>-->
- <button type="button" onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY'">리스트</button>
- <button type="button" onclick="location.href = 'MainForm.jsp?contentPage=Community/update.jsp&title=EDIT&nowPage=<%=nowPage%>&num=<%=num%>'">수정</button>
- <button type="button" onclick="location.href ='MainForm.jsp?contentPage=Community/reply.jsp&nowPage=<%=nowPage%>' ">답변</button>
- <button type="button" onclick="location.href='MainForm.jsp?contentPage=Community/delete.jsp&title=DELETE&nowPage=<%=nowPage%>&num=<%=num%>' ">삭제</button>
+ <button type="button" onclick="location.href = 'community.jsp'">리스트</button>
+ <button type="button" onclick="location.href = 'update.jsp?&nowPage=<%=nowPage%>&num=<%=num%>'">수정</button>
+ <button type="button" onclick="location.href ='reply.jsp?&nowPage=<%=nowPage%>' ">답변</button>
+ <button type="button" onclick="location.href='delete.jsp?&title=DELETE&nowPage=<%=nowPage%>&num=<%=num%>' ">삭제</button>
 
   </td>
  </tr>
@@ -126,7 +128,7 @@ background:#E9EDC9}
 
 </div>
 
-<form name="downFrm" action="download.jsp" method="post">
+<form name="downFrm" action="Community/download.jsp" method="post">
 	<input type="hidden" name="filename">
 </form>
 
@@ -138,5 +140,9 @@ background:#E9EDC9}
 	<%}%>
 </form>
  </div>
+ <div id="footer"> 
+       		티타임 차차차 <br/>
+        	Developers 하나의 이변 from 성신여자대학교 
+        </div>
 </body>
 </html>
