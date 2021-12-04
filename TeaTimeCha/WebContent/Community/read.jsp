@@ -88,18 +88,12 @@ background:#E9EDC9}
      <td align="center" bgcolor="#DDDDDD">첨부파일</td>
      <td bgcolor="#FFFFE8" colspan="3">
      <% if( filename !=null && !filename.equals("")) {%>
-  		<a href="javascript:down('<%=filename%>')"><%=filename%></a>
+  		<a style="text-decoration-line:none;color:black" href="javascript:down('<%=filename%>')"><%=filename%></a>
   		 &nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)</font>  
   		 <%} else{%> 등록된 파일이 없습니다.<%}%>
      </td>
     
-     <tr>
-      <td>
-     <%=filename%></td>
-     </tr>
-     <td><img  width="100%"src="Community/fileupload/<%=filename%>"></td>
      
-     <!--td> 이미지 가져오기</td-->
    </tr>
    
    <tr>
