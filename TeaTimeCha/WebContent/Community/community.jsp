@@ -101,13 +101,14 @@ border-top:none
 </head>
 <body bgcolor="#CCD5AE">
 <div id="wrap">
+<div class="header">
         <div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
-       
+       <div id="header">
             <h2 id="headerTitle">COMMUNITY</h2> 
-       
-
+       </div>
+</div>
   <div align="center" style="background:white;height:600px;padding:20px;">
 	
 	<div id="searchBar"  style="width:500px;float:right;">

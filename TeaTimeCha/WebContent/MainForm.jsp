@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="headerStyle.css" type="text/css">
 <link rel="stylesheet" href="ChaStyle.css" type="text/css">
+
 <%
 	request.setCharacterEncoding("UTF-8");
     String contentPage = "Home/home.jsp";
@@ -26,19 +27,21 @@
 </head>
 <body>
 <div id="wrap">
+	<div class="header">
         <div id="header" >
             <jsp:include page="menubar.jsp" />
         </div>
         <div id="header">
             <h2 id="headerTitle"><%=title%></h2> 
         </div>
-        <div id="main">
-            <jsp:include page="<%=contentPage%>" />
-        </div>
-        <div id="footer"> 
-       		티타임 차차차 <br/>
-        	Developers 하나의 이변 from 성신여자대학교 
-        </div>
+    </div>
+    <div id="main">
+        <jsp:include page="<%=contentPage%>" />
+    </div>
+    <div id="footer"> 
+       	티타임 차차차 <br/>
+        Developers 하나의 이변 from 성신여자대학교 
+    </div>
  </div>
 
 </body>
