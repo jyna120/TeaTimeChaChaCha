@@ -46,7 +46,7 @@
 	<tbody>
 		<tr>
 			<td class="cafe_image"><img class="cafePreview" src="CafeImage/<%=cafeBean.getCafe_image()%>" ></td>
-			<td class="cafe_info"><p class="cafe_name"><%=cafeBean.getCafe_name()%></p><br/><%=cafeBean.getCafe_address()%><br/><br/><%=cafeBean.getCafe_info()%></td>
+			<td class="cafe_info"><p class="cafe_name"><%=cafeBean.getCafe_name()%></p><br/><br/><%=cafeBean.getCafe_address()%><br/><br/><%=cafeBean.getCafe_info()%></td>
 		</tr>
 	</tbody>
 	</table>

@@ -16,7 +16,7 @@
     if (a != null) {
          contentPage = a;
     }
-	String title = "TEA TIME";
+	String title = "TEA TIME, CHA CHA CHA";
 	String t = request.getParameter("title");
     if (t != null) {
     	title = new String(t.getBytes("8859_1"), "UTF-8");   	

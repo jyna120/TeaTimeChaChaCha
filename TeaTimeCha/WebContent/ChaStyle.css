@@ -219,6 +219,16 @@ html,body{
 	color:#CCD5AE;
 }
 
+.image {
+	position: relative;
+	text-align: left;
+}
+
+i {
+	font-size: 25px; 
+	color:#a3b669;
+}
+
 /* cafe */
 
 #cafebar {

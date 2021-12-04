@@ -27,11 +27,12 @@
 			한잔 어떠세요?<br/><br/>
 			<a class="teaMore" href="MainForm.jsp?contentPage=Tea/teaInfo.jsp&title=TEA&c=<%=r%>">>> 더보기</a>		
 		</div>
+		<!-- line -->
+		<div class="line"></div>
 		<tbody align="center" >
-			<tr>
-				<td width="50%"><img src="https://wildernessandcruises.com/wp-content/uploads/2020/11/pexels-mareefe-1417945-768x528.jpg"
-				size="cover"></td>
-				<td width="50%">text</td>
+			<tr class="image">
+				<td width="70%"><img src="Home/홈1.jpg" width="80%"></td>
+				<td><i>여유를 담은 차 한잔,<br/><br/>일상의 힐링으로 다가오다.</i><br/><br/><br/><br/>티타임 차차차는<br/><br/>서울에 있는 전통 찻집과 차를 소개하며,<br/>후기를 남겨 기록할 수 있는 공간입니다.</td>
 			</tr>
 		</tbody>
 	</table>
