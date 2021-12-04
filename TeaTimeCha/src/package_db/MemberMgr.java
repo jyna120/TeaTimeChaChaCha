@@ -64,5 +64,26 @@ public class MemberMgr {
 			}
 			return flag;
 		}
+		// ID 중복확인
+		public boolean checkId(String id) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = null;
+			boolean flag = false;
+			try {
+				con = pool.getConnection();
+				sql = "select member_id from tblMember where member_id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, id);
+				flag = pstmt.executeQuery().next();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				pool.freeConnection(con, pstmt, rs);
+			}
+			return flag;
+		}
+
 
 }

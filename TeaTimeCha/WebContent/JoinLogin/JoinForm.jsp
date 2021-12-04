@@ -8,6 +8,19 @@ pageEncoding="UTF-8"%>
 %>
 <meta charset="EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript">
+	function idCheck(id) {
+		frm = document.regForm;
+		if (id == "") {
+			alert("아이디를 입력해 주세요.");
+			frm.id.focus();
+			return;
+		}
+		url = "JoinLogin/idCheck.jsp?id=" + id;
+		window.open(url, "IDCheck", "width=300,height=150");
+	}
+</script>
 
 <title>Join</title>
 </head>
@@ -22,8 +35,9 @@ pageEncoding="UTF-8"%>
 				아이디
 			</h4> 
 			<div class="joinID"> 
-				<input type="text" class="input" style="ime-mode:disabled;" placeholder="아이디" name="member_id" title="아이디" maxlength="20"> 
-			</div> 
+				<input type="text" class="input" style="ime-mode:disabled;" placeholder="아이디" name="member_id" title="아이디" maxlength="20">				
+			</div>
+			<input type="button" class="IDCheck" value="ID중복확인" onClick="idCheck(this.form.member_id.value)">
 			<h4>
 				비밀번호
 			</h4> 
