@@ -16,7 +16,7 @@
 	  request.setCharacterEncoding("euc-kr");
 	  
       int totalRecord=0; //전체레코드수
-	  int numPerPage=10; // 페이지당 레코드 수 
+	  int numPerPage=20; // 페이지당 레코드 수 
 	  int pagePerBlock=15; //블럭당 페이지수 
 	  
 	  int totalPage=0; //전체 페이지 수
@@ -104,13 +104,13 @@ background:#E9EDC9}
 	 }
 </script>
 </head>
-<body bgcolor="#CCD5AE">
+<body bgcolor="#CCD5AE" >
 <div id="wrap">
 <!--div id="header" >
             <  jsp:include page="menubar.jsp" />
         </div>
         <h2 id="headerTitle"><%=title%></h2-->
-  <div align="center" style="background:white;height:400px;padding:20px;">
+  <div align="center" style="background:white;height:600px;padding:20px;">
 	
 	<div id="searchBar"  style="width:500px;float:right;">
 	<form  name="searchFrm"  method="get" action="Community/list.jsp">

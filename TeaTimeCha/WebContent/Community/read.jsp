@@ -64,7 +64,7 @@ background:#E9EDC9}
         </div>
         <h2 id="headerTitle"><%=title%></h2-->
         
-        <div  style="background:white; width: 100%;float:center;padding-top:3%;">
+        <div  style="background:white; width: 100%;height:600px;float:center;padding-top:3%;">
         <div style="background:#CCD5AE; width: 100%;float:center;padding-top:3%;"> 
         <center id="review" style="background:white; width: 100%;float:center;">
         <table align="center" width="600" cellspacing="3" >
@@ -72,14 +72,14 @@ background:#E9EDC9}
   <td colspan="2">
    <table cellpadding="3" cellspacing="0" width="100%"> 
     <tr> 
-    
-    <td bgcolor="#FFFFE8" colspan="4"><%=subject%></td>
+    <td align="center" bgcolor="#DDDDDD" width="20%"> 찻집 </td>
+    <td bgcolor="#FFFFE8" colspan="3"><%=subject%></td>
    </tr>
     <tr> 
-  <td align="center" bgcolor="#DDDDDD" width="10%"> 작성자 </td>
-  <td bgcolor="#FFFFE8"><%=name%></td>
-  <td align="center" bgcolor="#DDDDDD" width="10%"> 등록날짜 </td>
-  <td bgcolor="#FFFFE8"><%=regdate%></td>
+  <td align="center" bgcolor="#DDDDDD" width="20%"> 작성자 </td>
+  <td bgcolor="#FFFFE8"width="30%"><%=name%></td>
+  <td align="center" bgcolor="#DDDDDD" width="20%"> 날짜 </td>
+  <td bgcolor="#FFFFE8" width="30%"><%=regdate%></td>
  </tr>
 <tr> 
     <td colspan="4" height="150px"><br/><pre><%=content%></pre><br/></td>
