@@ -31,7 +31,7 @@
 <html>
 <head>
 <title>후기게시판</title>
-<link href="headerStyle.css" rel="stylesheet" type="text/css">
+<link href="ChaStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
 <style>
 td{
@@ -112,7 +112,7 @@ background:#E9EDC9}
  <tr>
   <td align="center" colspan="2"> 
  <hr/><!-- onclick="location.href='javascript:list()' "/location.href='update.jsp?nowPage=<%=nowPage%>&num=<%=num%>'  reply.jsp?nowPage=<%=nowPage%>-->
- <button type="button" onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=Community'">리스트</button>
+ <button type="button" onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY'">리스트</button>
  <button type="button" onclick="location.href = 'MainForm.jsp?contentPage=Community/update.jsp&title=EDIT&nowPage=<%=nowPage%>&num=<%=num%>'">수정</button>
  <button type="button" onclick="location.href ='MainForm.jsp?contentPage=Community/reply.jsp&nowPage=<%=nowPage%>' ">답변</button>
  <button type="button" onclick="location.href='MainForm.jsp?contentPage=Community/delete.jsp&title=DELETE&nowPage=<%=nowPage%>&num=<%=num%>' ">삭제</button>

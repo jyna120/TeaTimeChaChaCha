@@ -24,8 +24,8 @@ public class BoardPostServlet extends HttpServlet {
 		request.setCharacterEncoding("EUC-KR");
 		BoardMgr bMgr = new BoardMgr();
 		bMgr.insertBoard(request);
-		System.out.println("SUCCESS2");///Community/list.jsp
-		response.sendRedirect("MainForm.jsp?contentPage=Community/list.jsp");//../list.jsp
+		System.out.println("SUCCESS3");///Community/list.jsp
+		response.sendRedirect("../MainForm.jsp?contentPage=Community/list.jsp");//../list.jsp
 		
 	}
 	

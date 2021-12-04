@@ -20,7 +20,7 @@
 <html>
 <head>
 <title>JSP Board</title>
-<link href="headerStyle.css" rel="stylesheet" type="text/css">
+<link href="ChaStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
 <style>
 button{
@@ -92,7 +92,7 @@ background:#E9EDC9}
   </td>
  </tr>
 </table>
- <input type="hidden" name="nowPage" value="<%=nowPage %>">
+ <input type="hidden" name="nowPage" value="<%=nowPage%>">
  <input type='hidden' name="num" value="<%=num%>">
 </form> 
 </div>

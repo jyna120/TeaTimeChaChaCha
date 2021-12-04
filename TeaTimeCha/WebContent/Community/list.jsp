@@ -5,14 +5,15 @@
 <jsp:useBean id="bMgr" class="Community.BoardMgr" />
 <%
 	request.setCharacterEncoding("UTF-8");
-	String title = "review";
+	String title = "COMMUNITY";
 	String t = request.getParameter("title");
     if (t != null) {
     	title = new String(t.getBytes("8859_1"), "UTF-8");   	
     }
 %>
+
 <%	
-	  request.setCharacterEncoding("EUC-KR");
+	  request.setCharacterEncoding("euc-kr");
 	  
       int totalRecord=0; //전체레코드수
 	  int numPerPage=10; // 페이지당 레코드 수 
@@ -122,7 +123,7 @@ background:#E9EDC9}
     				<option value="content"> 내 용</option>
    				</select>
    				<input size="16" name="keyWord"style="width:300px;border:3px solid #E9EDC9;border-radius:2px;">
-   				<button type="button"onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=REVIEW'">찾기</button>
+   				<button type="button"onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY&keyField=<%=keyField%>&keyWord=<%=keyWord%>'">찾기</button>
    				<input type="button"  value="찾기" onClick="javascript:check()" >
    				<input type="hidden" name="nowPage" value="1">
    				
@@ -206,8 +207,9 @@ background:#E9EDC9}
    				  if(totalPage !=0){
     			  	if (nowBlock > 1) {%>
     			  		<a style="text-decoration-line:none;color:black"href="javascript:block('<%=nowBlock-1%>')">prev...</a><%}%>&nbsp; 
-    			  		<%for ( ; pageStart < pageEnd; pageStart++){%>
-     			     	<a style="text-decoration-line:none;color:black"href="javascript:pageing('<%=pageStart %>')"> 
+    			  		<%for ( ; pageStart < pageEnd; pageStart++){%> 
+     			     	<!-- href="javascript:pageing('<%=pageStart %>')" -->
+     			     	<a style="text-decoration-line:none;color:black"onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY&nowPage=<%=pageStart %>'"> 
      					<%if(pageStart==nowPage) {%> <%}%>
      					[<%=pageStart %>] 
      					<%if(pageStart==nowPage) {%> <%}%></a> 
@@ -218,19 +220,19 @@ background:#E9EDC9}
    				<%}%>
  				<!-- 페이징 및 블럭 처리 End-->
 				</td>
-				<td align="right" > <!-- onclick="location.href='post.jsp' " -->
+				<td align="right" > <!-- onclick="location.href='post.jsp' "//location.href='javascript:list()' -->
 					<button type="button"  onclick="location.href = 'MainForm.jsp?contentPage=Community/post.jsp&title=POST'">글쓰기</button>
-					<button type="button" onclick="location.href='javascript:list()' ">처음으로</button>
+					<button type="button" onclick="location.href='javascript:list()">처음으로</button>
 				</td>
 			</tr>
 		</table>
 	<hr width="600"/>
 	
-	<form name="listFrm" method="post" action="MainForm.jsp?contentPage=Community/list.jsp&title=REVIEW">
+	<form name="listFrm" method="post" action="MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY">
 		<input type="hidden" name="reload" value="true"> 
 		<input type="hidden" name="nowPage" value="1">
 	</form>
-	<form name="readFrm" method="get">
+	<form name="readFrm" method="get" >
 		<input type="hidden" name="num"> 
 		<input type="hidden" name="nowPage" value="<%=nowPage%>"> 
 		<input type="hidden" name="keyField" value="<%=keyField%>"> 

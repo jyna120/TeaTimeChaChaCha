@@ -13,7 +13,7 @@
 <html>
 <head>
 <title>JSP Board</title>
-<link href="headerStyle.css" rel="stylesheet" type="text/css">
+<link href="ChaStyle.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
 <%
 	request.setCharacterEncoding("EUC-KR");
