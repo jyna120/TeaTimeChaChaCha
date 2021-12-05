@@ -43,13 +43,13 @@ public class BoardMgr {
       try {
          con = pool.getConnection();
          if (keyWord.equals("null") || keyWord.equals("")) {   //pos
-            sql = "select * from tblBoard order by ref desc, pos limit ?, ?";
+            sql = "select * from tblCommunity order by com_ref desc, com_pos limit ?, ?";
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, start);
             pstmt.setInt(2, end);
          } else {
-            sql = "select * from tblBoard where " + keyField + " like ? ";
-            sql += "order by ref desc, pos limit ? , ?";
+            sql = "select * from tblCommunity where " + keyField + " like ? ";
+            sql += "order by com_ref desc, com_pos limit ? , ?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, "%" + keyWord + "%");
             pstmt.setInt(2, start);
@@ -58,14 +58,15 @@ public class BoardMgr {
          rs = pstmt.executeQuery();
          while (rs.next()) {
             BoardBean bean = new BoardBean();
-            bean.setNum(rs.getInt("num"));
-            bean.setName(rs.getString("name"));
-            bean.setSubject(rs.getString("subject"));
-            bean.setPos(rs.getInt("pos"));
-            bean.setRef(rs.getInt("ref"));
-            bean.setDepth(rs.getInt("depth"));
-            bean.setRegdate(rs.getString("regdate"));
-            bean.setCount(rs.getInt("count"));
+            bean.setCom_num(rs.getInt("com_num"));
+            bean.setCom_name(rs.getString("com_name"));
+            bean.setCom_subject(rs.getString("com_subject"));
+            bean.setCom_pos(rs.getInt("com_pos"));
+            bean.setCom_ref(rs.getInt("com_ref"));
+            bean.setCom_depth(rs.getInt("com_depth"));
+            bean.setCom_regdate(rs.getString("com_regdate"));
+            bean.setCom_count(rs.getInt("com_count"));
+
             vlist.add(bean);
          }
       } catch (Exception e) {
@@ -86,10 +87,10 @@ public class BoardMgr {
       try {
          con = pool.getConnection();
          if (keyWord.equals("null") || keyWord.equals("")) {
-            sql = "select count(num) from tblBoard";
+            sql = "select count(com_num) from tblCommunity";
             pstmt = con.prepareStatement(sql);
          } else {
-            sql = "select count(num) from  tblBoard where " + keyField + " like ? ";
+            sql = "select count(com_num) from  tblCommunity where " + keyField + " like ? ";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, "%" + keyWord + "%");
          }
@@ -112,41 +113,41 @@ public class BoardMgr {
       ResultSet rs = null;
       String sql = null;
       MultipartRequest multi = null;
-      int filesize = 0;
-      String filename = null;
+      int com_filesize = 0;
+      String com_filename = null;
       try {
          con = pool.getConnection();
-         sql = "select max(num) from tblBoard";
+         sql = "select max(com_num) from tblCommunity";
          pstmt = con.prepareStatement(sql);
          rs = pstmt.executeQuery();
-         int ref = 1;
+         int com_ref = 1;
          if (rs.next())
-            ref = rs.getInt(1) + 1;
+        	 com_ref = rs.getInt(1) + 1;
          File file = new File(SAVEFOLDER);
          if (!file.exists())
             file.mkdirs();
          multi = new MultipartRequest(req, SAVEFOLDER,MAXSIZE, ENCTYPE,
                new DefaultFileRenamePolicy());
 
-         if (multi.getFilesystemName("filename") != null) {
-            filename = multi.getFilesystemName("filename");
-            filesize = (int) multi.getFile("filename").length();
+         if (multi.getFilesystemName("com_filename") != null) {
+        	 com_filename = multi.getFilesystemName("com_filename");
+        	 com_filesize = (int) multi.getFile("com_filename").length();
          }
-         String content = multi.getParameter("content");
+         String com_content = multi.getParameter("com_content");
          if (multi.getParameter("contentType").equalsIgnoreCase("TEXT")) {
-            content = UtilMgr.replace(content, "<", "&lt;");
+        	 com_content = UtilMgr.replace(com_content, "<", "&lt;");
          }
-         sql = "insert tblBoard(name,content,subject,ref,pos,depth,regdate,pass,count,ip,filename,filesize)";
+         sql = "insert tblCommunity(com_name,com_content,com_subject,com_ref,com_pos,com_depth,com_regdate,com_pass,com_count,com_ip,com_filename,com_filesize)";
          sql += "values(?, ?, ?, ?, 0, 0, now(), ?, 0, ?, ?, ?)";
          pstmt = con.prepareStatement(sql);
-         pstmt.setString(1, multi.getParameter("name"));
-         pstmt.setString(2, content);
-         pstmt.setString(3, multi.getParameter("subject"));
-         pstmt.setInt(4, ref);
-         pstmt.setString(5, multi.getParameter("pass"));
-         pstmt.setString(6, multi.getParameter("ip"));
-         pstmt.setString(7, filename);
-         pstmt.setInt(8, filesize);
+         pstmt.setString(1, multi.getParameter("com_name"));
+         pstmt.setString(2, com_content);
+         pstmt.setString(3, multi.getParameter("com_subject"));
+         pstmt.setInt(4, com_ref);
+         pstmt.setString(5, multi.getParameter("com_pass"));
+         pstmt.setString(6, multi.getParameter("com_ip"));
+         pstmt.setString(7, com_filename);
+         pstmt.setInt(8, com_filesize);
          pstmt.executeUpdate();
       } catch (Exception e) {
          e.printStackTrace();
@@ -156,7 +157,7 @@ public class BoardMgr {
    }
    
    // 게시물 리턴
-   public BoardBean getBoard(int num) {
+   public BoardBean getBoard(int com_num) {
       Connection con = null;
       PreparedStatement pstmt = null;
       ResultSet rs = null;
@@ -164,24 +165,24 @@ public class BoardMgr {
       BoardBean bean = new BoardBean();
       try {
          con = pool.getConnection();
-         sql = "select * from tblBoard where num=?";
+         sql = "select * from tblCommunity where com_num=?";
          pstmt = con.prepareStatement(sql);
-         pstmt.setInt(1, num);
+         pstmt.setInt(1, com_num);
          rs = pstmt.executeQuery();
          if (rs.next()) {
-            bean.setNum(rs.getInt("num"));
-            bean.setName(rs.getString("name"));
-            bean.setSubject(rs.getString("subject"));
-            bean.setContent(rs.getString("content"));
-            bean.setPos(rs.getInt("pos"));
-            bean.setRef(rs.getInt("ref"));
-            bean.setDepth(rs.getInt("depth"));
-            bean.setRegdate(rs.getString("regdate"));
-            bean.setPass(rs.getString("pass"));
-            bean.setCount(rs.getInt("count"));
-            bean.setFilename(rs.getString("filename"));
-            bean.setFilesize(rs.getInt("filesize"));
-            bean.setIp(rs.getString("ip"));
+            bean.setCom_num(rs.getInt("com_num"));
+            bean.setCom_name(rs.getString("com_name"));
+            bean.setCom_subject(rs.getString("com_subject"));
+            bean.setCom_content(rs.getString("com_content"));
+            bean.setCom_pos(rs.getInt("com_pos"));
+            bean.setCom_ref(rs.getInt("com_ref"));
+            bean.setCom_depth(rs.getInt("com_depth"));
+            bean.setCom_regdate(rs.getString("com_regdate"));
+            bean.setCom_pass(rs.getString("com_pass"));
+            bean.setCom_count(rs.getInt("com_count"));
+            bean.setCom_filename(rs.getString("com_filename"));
+            bean.setCom_filesize(rs.getInt("com_filesize"));
+            bean.setCom_ip(rs.getString("com_ip"));
          }
       } catch (Exception e) {
          e.printStackTrace();
@@ -192,15 +193,15 @@ public class BoardMgr {
    }
 
    // 조회수 증가
-   public void upCount(int num) {
+   public void upCount(int com_num) {
       Connection con = null;
       PreparedStatement pstmt = null;
       String sql = null;
       try {
          con = pool.getConnection();
-         sql = "update tblBoard set count=count+1 where num=?";
+         sql = "update tblCommunity set com_count=com_count+1 where com_num=?";
          pstmt = con.prepareStatement(sql);
-         pstmt.setInt(1, num);
+         pstmt.setInt(1, com_num);
          pstmt.executeUpdate();
       } catch (Exception e) {
          e.printStackTrace();
@@ -210,16 +211,16 @@ public class BoardMgr {
    }
 
    // 게시물 삭제
-   public void deleteBoard(int num) {
+   public void deleteBoard(int com_num) {
       Connection con = null;
       PreparedStatement pstmt = null;
       String sql = null;
       ResultSet rs = null;
       try {
          con = pool.getConnection();
-         sql = "select filename from tblBoard where num = ?";
+         sql = "select com_filename from tblCommunity where com_num = ?";
          pstmt = con.prepareStatement(sql);
-         pstmt.setInt(1, num);
+         pstmt.setInt(1, com_num);
          rs = pstmt.executeQuery();
          if (rs.next() && rs.getString(1) != null) {
             if (!rs.getString(1).equals("")) {
@@ -228,9 +229,9 @@ public class BoardMgr {
                   UtilMgr.delete(SAVEFOLDER + "/" + rs.getString(1));
             }
          }
-         sql = "delete from tblBoard where num=?";
+         sql = "delete from tblCommunity where com_num=?";
          pstmt = con.prepareStatement(sql);
-         pstmt.setInt(1, num);
+         pstmt.setInt(1, com_num);
          pstmt.executeUpdate();
       } catch (Exception e) {
          e.printStackTrace();
@@ -246,12 +247,12 @@ public class BoardMgr {
       String sql = null;
       try {
          con = pool.getConnection();
-         sql = "update tblBoard set name=?,subject=?,content=? where num=?";
+         sql = "update tblCommunity set com_name=?,com_subject=?,com_content=? where com_num=?";
          pstmt = con.prepareStatement(sql);
-         pstmt.setString(1, bean.getName());
-         pstmt.setString(2, bean.getSubject());
-         pstmt.setString(3, bean.getContent());
-         pstmt.setInt(4, bean.getNum());
+         pstmt.setString(1, bean.getCom_name());
+         pstmt.setString(2, bean.getCom_subject());
+         pstmt.setString(3, bean.getCom_content());
+         pstmt.setInt(4, bean.getCom_num());
          pstmt.executeUpdate();
       } catch (Exception e) {
          e.printStackTrace();
@@ -267,19 +268,19 @@ public class BoardMgr {
       String sql = null;
       try {
          con = pool.getConnection();
-         sql = "insert tblBoard (name,content,subject,ref,pos,depth,regdate,pass,count,ip)";
+         sql = "insert tblCommunity(com_name,com_content,com_subject,com_ref,com_pos,com_depth,com_regdate,com_pass,com_count,com_ip)";
          sql += "values(?,?,?,?,?,?,now(),?,0,?)";
-         int depth = bean.getDepth() + 1;
-         int pos = bean.getPos() + 1;
+         int com_depth = bean.getCom_depth() + 1;
+         int com_pos = bean.getCom_pos() + 1;
          pstmt = con.prepareStatement(sql);
-         pstmt.setString(1, bean.getName());
-         pstmt.setString(2, bean.getContent());
-         pstmt.setString(3, bean.getSubject());
-         pstmt.setInt(4, bean.getRef());
-         pstmt.setInt(5, pos);
-         pstmt.setInt(6, depth);
-         pstmt.setString(7, bean.getPass());
-         pstmt.setString(8, bean.getIp());
+         pstmt.setString(1, bean.getCom_name());
+         pstmt.setString(2, bean.getCom_content());
+         pstmt.setString(3, bean.getCom_subject());
+         pstmt.setInt(4, bean.getCom_ref());
+         pstmt.setInt(5, com_pos);
+         pstmt.setInt(6, com_depth);
+         pstmt.setString(7, bean.getCom_pass());
+         pstmt.setString(8, bean.getCom_ip());
          pstmt.executeUpdate();
       } catch (Exception e) {
          e.printStackTrace();
@@ -289,16 +290,16 @@ public class BoardMgr {
    }
 
    // 답변에 위치값 증가
-   public void replyUpBoard(int ref, int pos) {
+   public void replyUpBoard(int com_ref, int com_pos) {
       Connection con = null;
       PreparedStatement pstmt = null;
       String sql = null;
       try {
          con = pool.getConnection();
-         sql = "update tblBoard set pos = pos + 1 where ref=? and pos > ?";
+         sql = "update tblCommunity set com_pos = com_pos + 1 where com_ref=? and com_pos > ?";
          pstmt = con.prepareStatement(sql);
-         pstmt.setInt(1, ref);
-         pstmt.setInt(2, pos);
+         pstmt.setInt(1, com_ref);
+         pstmt.setInt(2, com_pos);
          pstmt.executeUpdate();
       } catch (Exception e) {
          e.printStackTrace();
@@ -311,17 +312,17 @@ public class BoardMgr {
       public void downLoad(HttpServletRequest req, HttpServletResponse res,
             JspWriter out, PageContext pageContext) {
          try {
-            String filename = req.getParameter("filename");
-            File file = new File(UtilMgr.con(SAVEFOLDER + File.separator+ filename));
+            String com_filename = req.getParameter("com_filename");
+            File file = new File(UtilMgr.con(SAVEFOLDER + File.separator+ com_filename));
             byte b[] = new byte[(int) file.length()];
             res.setHeader("Accept-Ranges", "bytes");
             String strClient = req.getHeader("User-Agent");
             if (strClient.indexOf("MSIE6.0") != -1) {
                res.setContentType("application/smnet;charset=euc-kr");
-               res.setHeader("Content-Disposition", "filename=" + filename + ";");
+               res.setHeader("Content-Disposition", "com_filename=" + com_filename + ";");
             } else {
                res.setContentType("application/smnet;charset=euc-kr");
-               res.setHeader("Content-Disposition", "attachment;filename="+ filename + ";");
+               res.setHeader("Content-Disposition", "attachment;com_filename="+ com_filename + ";");
             }
             out.clear();
             out = pageContext.pushBody();
@@ -349,7 +350,7 @@ public class BoardMgr {
       String sql = null;
       try {
          con = pool.getConnection();
-         sql = "insert tblBoard(name,content,subject,ref,pos,depth,regdate,pass,count,ip,filename,filesize)";
+         sql = "insert tblCommunity(com_name,com_content,com_subject,com_ref,com_pos,com_depth,com_regdate,com_pass,com_count,com_ip,com_filename,com_filesize)";
          sql+="values('aaa', 'bbb', 'ccc', 0, 0, 0, now(), '1111',0, '127.0.0.1', null, 0);";
          pstmt = con.prepareStatement(sql);
          for (int i = 0; i < 1000; i++) {

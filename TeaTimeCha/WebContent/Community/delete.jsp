@@ -18,13 +18,13 @@
 <%
 	request.setCharacterEncoding("EUC-KR");
 	String nowPage = request.getParameter("nowPage");
-	int num = Integer.parseInt(request.getParameter("num"));
-	if (request.getParameter("pass") != null) {
-		String inPass = request.getParameter("pass");
+	int com_num = Integer.parseInt(request.getParameter("com_num"));
+	if (request.getParameter("com_pass") != null) {
+		String inPass = request.getParameter("com_pass");
 		BoardBean bean = (BoardBean) session.getAttribute("bean");
-		String dbPass = bean.getPass();
+		String dbPass = bean.getCom_pass();
 		if (inPass.equals(dbPass)) {
-			bMgr.deleteBoard(num);
+			bMgr.deleteBoard(com_num);
 			String url = "community.jsp?nowPage=" + nowPage;
 			response.sendRedirect(url);
 		} else {
@@ -39,9 +39,9 @@
 %>
 <script type="text/javascript">
 	function check() {
-		if (document.delFrm.pass.value == "") {
+		if (document.delFrm.com_pass.value == "") {
 			alert("패스워드를 입력하세요.");
-			document.delFrm.pass.focus();
+			document.delFrm.com_pass.focus();
 			return false;
 		}
 		document.delFrm.submit();
@@ -71,7 +71,7 @@
 						<table>
 							<tr>
 								<td align="center">
-									<input type="password" name="pass" size="17" maxlength="15">
+									<input type="password" name="com_pass" size="17" maxlength="15">
 								</td>
 							</tr>
 							<tr>
@@ -90,7 +90,7 @@
 				</tr>
 			</table>
 			<input type="hidden" name="nowPage" value="<%=nowPage%>"> 
-			<input type="hidden" name="num" value="<%=num%>">
+			<input type="hidden" name="com_num" value="<%=com_num%>">
 		</form>
 	</div>
 	<%}%>

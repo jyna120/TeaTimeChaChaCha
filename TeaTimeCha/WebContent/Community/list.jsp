@@ -36,9 +36,7 @@
 		keyWord = request.getParameter("keyWord");
 		keyField = request.getParameter("keyField");
 	}
-	////
-	System.out.println(keyWord+" "+keyField);
-	////
+	
 	if (request.getParameter("reload") != null){
 		if(request.getParameter("reload").equals("true")) {
 			keyWord = "";
@@ -91,8 +89,8 @@ background:#E9EDC9}
 		 document.readFrm.submit();
 	} 
 	
-	function read(num){
-		document.readFrm.num.value=num;
+	function read(com_num){
+		document.readFrm.com_num.value=com_num;
 		document.readFrm.action='Community/read.jsp';
 		document.readFrm.submit();
 	}
@@ -165,13 +163,13 @@ background:#E9EDC9}
 						  for (int i = 0;i<numPerPage; i++) {
 							if (i == listSize) break;
 							BoardBean bean = vlist.get(i);
-							int num = bean.getNum();
-							String name = bean.getName();
-							String subject = bean.getSubject();
+							int num = bean.getCom_num();
+							String name = bean.getCom_name();
+							String subject = bean.getCom_subject();
 							
-							String regdate = bean.getRegdate();
-							int depth = bean.getDepth();
-							int count = bean.getCount();
+							String regdate = bean.getCom_regdate();
+							int depth = bean.getCom_depth();
+							int count = bean.getCom_count();
 					%>
 					<tr>
 						<td align="center">

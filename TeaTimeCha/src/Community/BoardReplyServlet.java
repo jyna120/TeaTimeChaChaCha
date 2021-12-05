@@ -16,16 +16,16 @@ public class BoardReplyServlet extends HttpServlet {
 		request.setCharacterEncoding("EUC-KR");
 		BoardMgr bMgr = new BoardMgr();
 		BoardBean reBean = new BoardBean();
-		reBean.setName(request.getParameter("name"));
-		reBean.setSubject(request.getParameter("subject"));
-		reBean.setContent(request.getParameter("content"));
-		reBean.setRef(Integer.parseInt(request.getParameter("ref"))); 
-		reBean.setPos(Integer.parseInt(request.getParameter("pos"))); 
-		reBean.setDepth(Integer.parseInt(request.getParameter("depth"))); 
-		reBean.setPass(request.getParameter("pass"));
-		reBean.setIp(request.getParameter("ip"));
+		reBean.setCom_name(request.getParameter("com_name"));
+		reBean.setCom_subject(request.getParameter("com_subject"));
+		reBean.setCom_content(request.getParameter("com_content"));
+		reBean.setCom_ref(Integer.parseInt(request.getParameter("com_ref"))); 
+		reBean.setCom_pos(Integer.parseInt(request.getParameter("com_pos"))); 
+		reBean.setCom_depth(Integer.parseInt(request.getParameter("com_depth"))); 
+		reBean.setCom_pass(request.getParameter("com_pass"));
+		reBean.setCom_ip(request.getParameter("com_ip"));
 
-		bMgr.replyUpBoard(reBean.getRef(), reBean.getPos());
+		bMgr.replyUpBoard(reBean.getCom_ref(), reBean.getCom_pos());
 		bMgr.replyBoard(reBean);
 		
 		String nowPage = request.getParameter("nowPage");

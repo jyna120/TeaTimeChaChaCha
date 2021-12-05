@@ -53,27 +53,27 @@
       <td align=center>
       <table align="center">
          <tr>
-            <td width="20%">성 명</td>
+            <td width="20%">닉네임</td>
             <td width="80%">
-            <input name="name" size="10" maxlength="8"></td>
+            <input name="com_name" size="10" maxlength="8"></td>
          </tr>
          <tr>
             <td>제 목</td>
             <td>
-            <input name="subject" size="50" maxlength="30"></td>
+            <input name="com_subject" size="50" maxlength="30"></td>
          </tr>
          <tr>
             <td>내 용</td>
-            <td><textarea name="content" rows="10" cols="50"></textarea></td>
+            <td><textarea name="com_content" rows="10" cols="50"></textarea></td>
          </tr>
          <tr>
             <td>비밀번호</td>
-            <td><input type="password" name="pass" size="15" maxlength="15"></td>
+            <td><input type="password" name="com_pass" size="15" maxlength="15"></td>
          </tr>
          
           <tr>
               <td>파일찾기</td> 
-              <td><input type="file" name="filename" size="50" maxlength="50"></td>
+              <td><input type="file" name="com_filename" size="50" maxlength="50"></td>
           </tr>
           <tr>
              <td>내용타입</td>
@@ -95,7 +95,7 @@
       </td>
    </tr>
 </table>
-<input type="hidden" name="ip" value="<%=request.getRemoteAddr()%>">
+<input type="hidden" name="com_ip" value="<%=request.getRemoteAddr()%>">
 </form>
 
 </div>

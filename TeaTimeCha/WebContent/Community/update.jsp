@@ -1,12 +1,12 @@
 <%@ page contentType="text/html; charset=EUC-KR" %>
  <%@ page import="Community.BoardBean"%>
 <% 
-	  int num = Integer.parseInt(request.getParameter("num"));
+	  int com_num = Integer.parseInt(request.getParameter("com_num"));
 	  String nowPage = request.getParameter("nowPage");
 	  BoardBean bean = (BoardBean)session.getAttribute("bean");
-	  String subject = bean.getSubject();
-	  String name = bean.getName(); 
-	  String content = bean.getContent(); 
+	  String com_subject = bean.getCom_subject();
+	  String com_name = bean.getCom_name(); 
+	  String com_content = bean.getCom_content(); 
 %>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -31,9 +31,9 @@ background:#E9EDC9}
 </style>
 <script>
 	function check() {
-	   if (document.updateFrm.pass.value == "") {
+	   if (document.updateFrm.com_pass.value == "") {
 		 alert("수정을 위해 패스워드를 입력하세요.");
-		 document.updateFrm.pass.focus();
+		 document.updateFrm.com_pass.focus();
 		 return false;
 		 }
 	   document.updateFrm.submit();
@@ -56,23 +56,23 @@ background:#E9EDC9}
     <tr>
      <td width="20%">성 명</td>
      <td width="80%">
-	  <input name="name" value="<%=name%>" size="30" maxlength="20">
+	  <input name="com_name" value="<%=com_name%>" size="30" maxlength="20">
 	 </td>
 	</tr>
 	<tr>
      <td>제 목</td>
      <td>
-	  <input name="subject" size="50" value="<%=subject%>" maxlength="50">
+	  <input name="com_subject" size="50" value="<%=com_subject%>" maxlength="50">
 	 </td>
     <tr>
      <td>내 용</td>
      <td>
-	  <textarea name="content" rows="10" cols="50"><%=content%></textarea>
+	  <textarea name="com_content" rows="10" cols="50"><%=com_content%></textarea>
 	 </td>
     </tr>
 	<tr>
      <td>비밀 번호</td> 
-     <td><input type="password" name="pass" size="15" maxlength="15">
+     <td><input type="password" name="com_pass" size="15" maxlength="15">
       수정 시에는 비밀번호가 필요합니다.</td>
     </tr>
 	<tr>
@@ -93,7 +93,7 @@ background:#E9EDC9}
  </tr>
 </table>
  <input type="hidden" name="nowPage" value="<%=nowPage%>">
- <input type='hidden' name="num" value="<%=num%>">
+ <input type='hidden' name="com_num" value="<%=com_num%>">
 </form> 
 </div>
  <div id="footer"> 

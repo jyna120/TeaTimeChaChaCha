@@ -27,20 +27,20 @@ public class BoardUpdateServlet extends HttpServlet {
 		String nowPage = request.getParameter("nowPage");
 		
 		BoardBean upBean = new BoardBean();
-		upBean.setNum(Integer.parseInt(request.getParameter("num")));
-		upBean.setName(request.getParameter("name"));
-		upBean.setSubject(request.getParameter("subject"));
-		upBean.setContent(request.getParameter("content"));
-		upBean.setPass(request.getParameter("pass"));
-		upBean.setIp(request.getParameter("ip"));
+		upBean.setCom_num(Integer.parseInt(request.getParameter("com_num")));
+		upBean.setCom_name(request.getParameter("com_name"));
+		upBean.setCom_subject(request.getParameter("com_subject"));
+		upBean.setCom_content(request.getParameter("com_content"));
+		upBean.setCom_pass(request.getParameter("com_pass"));
+		upBean.setCom_ip(request.getParameter("com_ip"));
 
-		String upPass = upBean.getPass();
-		String inPass = bean.getPass();
+		String upPass = upBean.getCom_pass();
+		String inPass = bean.getCom_pass();
 
 		if (upPass.equals(inPass)) {
 			bMgr.updateBoard(upBean);
 			//"MainForm.jsp?contentPage=Community/read.jsp&title=REVIEW&nowPage=" + nowPage + "&num=" + upBean.getNum();
-			String url = "read.jsp?&title=REVIEW&nowPage=" + nowPage + "&num=" + upBean.getNum();
+			String url = "read.jsp?&title=REVIEW&nowPage=" + nowPage + "&com_num=" + upBean.getCom_num();
 			//String url = "read.jsp?nowPage=" + nowPage + "&num=" + upBean.getNum();
 			response.sendRedirect(url);
 		} else {

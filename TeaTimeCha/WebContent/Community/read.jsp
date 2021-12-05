@@ -12,20 +12,20 @@
 %>
 <%
 	  request.setCharacterEncoding("EUC-KR");
-	  int num = Integer.parseInt(request.getParameter("num"));
+	  int com_num = Integer.parseInt(request.getParameter("com_num"));
 	  String nowPage = request.getParameter("nowPage");
 	  String keyField = request.getParameter("keyField");
 	  String keyWord = request.getParameter("keyWord");
-	  bMgr.upCount(num);//조회수 증가
-	  BoardBean bean = bMgr.getBoard(num);//게시물 가져오기
-	  String name = bean.getName();
-	  String subject = bean.getSubject();
-      String regdate = bean.getRegdate();
-	  String content = bean.getContent();
-	  String filename = bean.getFilename();
-	  int filesize = bean.getFilesize();
-	  String ip = bean.getIp();
-	  int count = bean.getCount();
+	  bMgr.upCount(com_num);//조회수 증가
+	  BoardBean bean = bMgr.getBoard(com_num);//게시물 가져오기
+	  String com_name = bean.getCom_name();
+	  String com_subject = bean.getCom_subject();
+      String com_regdate = bean.getCom_regdate();
+	  String com_content = bean.getCom_content();
+	  String com_filename = bean.getCom_filename();
+	  int com_filesize = bean.getCom_filesize();
+	  String com_ip = bean.getCom_ip();
+	  int com_count = bean.getCom_count();
 	  session.setAttribute("bean", bean);//게시물을 세션에 저장
 %>
 <html>
@@ -50,8 +50,8 @@ background:#E9EDC9}
 	    document.listFrm.submit();
 	 } 
 	
-	function down(filename){
-		 document.downFrm.filename.value=filename;
+	function down(com_filename){
+		 document.downFrm.com_filename.value=com_filename;
 		 document.downFrm.submit();
 	}
 </script>
@@ -73,23 +73,23 @@ background:#E9EDC9}
    <table cellpadding="3" cellspacing="0" width="100%"> 
     <tr> 
     <td align="center" bgcolor="#DDDDDD" width="20%"> 찻집 </td>
-    <td bgcolor="#FFFFE8" colspan="3"><%=subject%></td>
+    <td bgcolor="#FFFFE8" colspan="3"><%=com_subject%></td>
    </tr>
     <tr> 
-  <td align="center" bgcolor="#DDDDDD" width="20%"> 작성자 </td>
-  <td bgcolor="#FFFFE8"width="30%"><%=name%></td>
+  <td align="center" bgcolor="#DDDDDD" width="20%"> 닉네임 </td>
+  <td bgcolor="#FFFFE8"width="30%"><%=com_name%></td>
   <td align="center" bgcolor="#DDDDDD" width="20%"> 날짜 </td>
-  <td bgcolor="#FFFFE8" width="30%"><%=regdate%></td>
+  <td bgcolor="#FFFFE8" width="30%"><%=com_regdate%></td>
  </tr>
 <tr> 
-    <td colspan="4" height="240px"><br/><pre><%=content%></pre><br/></td>
+    <td colspan="4" height="240px"><br/><pre><%=com_content%></pre><br/></td>
    </tr>
    <tr> 
      <td align="center" bgcolor="#DDDDDD">첨부파일</td>
      <td bgcolor="#FFFFE8" colspan="3">
-     <% if( filename !=null && !filename.equals("")) {%>
-  		<a style="text-decoration-line:none;color:black" href="javascript:down('<%=filename%>')"><%=filename%></a>
-  		 &nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)</font>  
+     <% if( com_filename !=null && !com_filename.equals("")) {%>
+  		<a style="text-decoration-line:none;color:black" href="javascript:down('<%=com_filename%>')"><%=com_filename%></a>
+  		 &nbsp;&nbsp;<font color="blue">(<%=com_filesize%>KBytes)</font>  
   		 <%} else{%> 등록된 파일이 없습니다.<%}%>
      </td>
     
@@ -98,7 +98,7 @@ background:#E9EDC9}
    
    <tr>
     <td colspan="4" align="right">
-       조회수  <%=count%>
+       조회수  <%=com_count%>
     </td>
    </tr>
    </table>
@@ -107,11 +107,12 @@ background:#E9EDC9}
  
  <tr>
   <td align="center" colspan="2"height="50px> 
- <hr/><!-- onclick="location.href='javascript:list()' "/location.href='update.jsp?nowPage=<%=nowPage%>&num=<%=num%>'  reply.jsp?nowPage=<%=nowPage%>-->
+ <hr/>
+ <!--onclick="location.href='javascript:list()' "/location.href='update.jsp?nowPage=<%=nowPage%>&com_num=<%=com_num%>'  reply.jsp?nowPage=<%=nowPage%>-->
  <button type="button" onclick="location.href = 'community.jsp'">리스트</button>
- <button type="button" onclick="location.href = 'update.jsp?&nowPage=<%=nowPage%>&num=<%=num%>'">수정</button>
+ <button type="button" onclick="location.href = 'update.jsp?&nowPage=<%=nowPage%>&com_num=<%=com_num%>'">수정</button>
  <button type="button" onclick="location.href ='reply.jsp?&nowPage=<%=nowPage%>' ">답변</button>
- <button type="button" onclick="location.href='delete.jsp?&title=DELETE&nowPage=<%=nowPage%>&num=<%=num%>' ">삭제</button>
+ <button type="button" onclick="location.href='delete.jsp?&title=DELETE&nowPage=<%=nowPage%>&com_num=<%=com_num%>' ">삭제</button>
 
   </td>
  </tr>
@@ -122,8 +123,8 @@ background:#E9EDC9}
 
 </div>
 
-<form name="downFrm" action="Community/download.jsp" method="post">
-	<input type="hidden" name="filename">
+<form name="downFrm" action="download.jsp" method="post">
+	<input type="hidden" name="com_filename">
 </form>
 
 <form name="listFrm" method="post" action="MainForm.jsp?contentPage=Community/list.jsp&title=REVIEW">

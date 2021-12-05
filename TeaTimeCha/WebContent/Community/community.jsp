@@ -83,8 +83,8 @@ border-top:none
 		 document.readFrm.submit();
 	} 
 	
-	function read(num){
-		document.readFrm.num.value=num;
+	function read(com_num){
+		document.readFrm.com_num.value=com_num;
 		document.readFrm.action="read.jsp";
 		document.readFrm.submit();
 	}
@@ -117,9 +117,9 @@ border-top:none
  		<tr>
   			<td align="center" valign="bottom">
    				<select name="keyField" size="1" >
-    				<option value="name"> 이 름</option>
-    				<option value="subject"> 제 목</option>
-    				<option value="content"> 내 용</option>
+    				<option value="com_name"> 이 름</option>
+    				<option value="com_subject"> 제 목</option>
+    				<option value="com_content"> 내 용</option>
    				</select>
    				<input size="16" name="keyWord" >
    				<input type="button"  value="찾기" onClick="javascript:check()" >
@@ -159,12 +159,12 @@ border-top:none
 						  for (int i = 0;i<numPerPage; i++) {
 							if (i == listSize) break;
 							BoardBean bean = vlist.get(i);
-							int num = bean.getNum();
-							String name = bean.getName();
-							String subject = bean.getSubject();
-							String regdate = bean.getRegdate();
-							int depth = bean.getDepth();
-							int count = bean.getCount();
+							int com_num = bean.getCom_num();
+							String com_name = bean.getCom_name();
+							String com_subject = bean.getCom_subject();
+							String com_regdate = bean.getCom_regdate();
+							int com_depth = bean.getCom_depth();
+							int com_count = bean.getCom_count();
 					%>
 					<tr>
 						<td align="center">
@@ -172,17 +172,17 @@ border-top:none
 						</td>
 						<td>
 						<%
-							  if(depth>0){
-								for(int j=0;j<depth;j++){
+							  if(com_depth>0){
+								for(int j=0;j<com_depth;j++){
 									out.println("&nbsp;&nbsp;");
 									}
 								}
 						%>
-						  <a style="text-decoration-line:none;color:black"href="javascript:read('<%=num%>')"><%=subject%></a>
+						  <a style="text-decoration-line:none;color:black"href="javascript:read('<%=com_num%>')"><%=com_subject%></a>
 						</td>
-						<td align="center"><%=name%></td>
-						<td align="center"><%=regdate%></td>
-						<td align="center"><%=count%></td>
+						<td align="center"><%=com_name%></td>
+						<td align="center"><%=com_regdate%></td>
+						<td align="center"><%=com_count%></td>
 						</tr>
 					<%}//for%>
 				</table> <%
@@ -228,7 +228,7 @@ border-top:none
 		<input type="hidden" name="nowPage" value="1">
 	</form>
 	<form name="readFrm" method="get">
-		<input type="hidden" name="num"> 
+		<input type="hidden" name="com_num"> 
 		<input type="hidden" name="nowPage" value="<%=nowPage%>"> 
 		<input type="hidden" name="keyField" value="<%=keyField%>"> 
 		<input type="hidden" name="keyWord" value="<%=keyWord%>">

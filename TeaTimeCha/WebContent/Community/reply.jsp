@@ -2,8 +2,8 @@
 <jsp:useBean id="bean" class="Community.BoardBean" scope="session"/>
 <%
 	  String nowPage = request.getParameter("nowPage");
-	  String subject = bean.getSubject();
-	  String content = bean.getContent(); 
+	  String com_subject = bean.getCom_subject();
+	  String com_content = bean.getCom_content(); 
 %>
 <html>
 <head>
@@ -24,20 +24,20 @@
   <td>
    <table>
     <tr>
-     <td width="20%">성 명</td>
+     <td width="20%">닉네임</td>
      <td width="80%">
-	  <input name="name" size="30" maxlength="20"></td>
+	  <input name="com_name" size="30" maxlength="20"></td>
     </tr>
     <tr>
      <td>제 목</td>
      <td>
-	  <input name="subject" size="50" value="답변 : <%=subject%>" maxlength="50"></td> 
+	  <input name="com_subject" size="50" value="답변 : <%=com_subject%>" maxlength="50"></td> 
     </tr>
 	<tr>
      <td>내 용</td>
      <td>
-	  <textarea name="content" rows="12" cols="50">
-      	<%=content %>
+	  <textarea name="com_content" rows="12" cols="50">
+      	<%=com_content %>
       	========답변 글을 쓰세요.=======
       	</textarea>
       </td>
@@ -45,7 +45,7 @@
     <tr>
      <td>비밀 번호</td> 
      <td>
-	  <input type="password" name="pass" size="15" maxlength="15"></td> 
+	  <input type="password" name="com_pass" size="15" maxlength="15"></td> 
     </tr>
     <tr>
      <td colspan="2" height="5"><hr/></td>
@@ -61,11 +61,11 @@
   </td>
  </tr>
 </table>
- <input type="hidden" name="ip" value="<%=request.getRemoteAddr()%>" >
+ <input type="hidden" name="com_ip" value="<%=request.getRemoteAddr()%>" >
  <input type="hidden" name="nowPage" value="<%=nowPage%>">
- <input type="hidden" name="ref" value="<%=bean.getRef()%>">
- <input type="hidden" name="pos" value="<%=bean.getPos()%>">
- <input type="hidden" name="depth" value="<%=bean.getDepth()%>">
+ <input type="hidden" name="com_ref" value="<%=bean.getCom_ref()%>">
+ <input type="hidden" name="com_pos" value="<%=bean.getCom_pos()%>">
+ <input type="hidden" name="com_depth" value="<%=bean.getCom_depth()%>">
 </form> 
 </div>
 <div id="footer"> 
