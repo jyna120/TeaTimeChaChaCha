@@ -16,7 +16,7 @@ public class CafeMgrPool {
  	   }
      }
  
-    public Vector<CafeBean> getTeaList() {
+    public Vector<CafeBean> getCafeList() {
 	   Connection conn = null;
 	   Statement stmt = null;
 	   ResultSet rs = null;

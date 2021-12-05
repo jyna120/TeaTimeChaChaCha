@@ -14,33 +14,25 @@
 </head>
 <body>
 <div id="section" style="text-align: center; width:100%;">
-	<!--
 	<div id="cafebar">
+		<!--
 		<div class="order">
 			<form method="post" action="forwardTest6_1.jsp">
 			<input type="submit" value="리뷰순">
 			</form>
 		</div>
+	 	-->
 		<div id="search">
-			<div class="row">
-			<form method="get" name="search" action="cafeList.jsp">
-				<table class="pull-right">
-					<tr>
-						<td><select class="form-control" name="searchField">
-								<option value="0">선택</option>
-								<option value="bbsTitle">이름</option>
-								<option value="userID">주소</option>
-						</select></td>
-						<td><input type="text" class="form-control"
-							placeholder="검색어 입력" name="searchText" maxlength="100"></td>
-						<td><button type="submit" class="btn btn-success">찾기</button></td>
-					</tr>
-				</table>
+			<select class="form-control" name="searchField">
+				<option value="0">선택</option>
+				<option value="cafeName">이름</option>
+				<option value="cafeAddress">지역</option>
+			</select>
+			<input type="text" class="form-control" name="searchText" maxlength="100">
+			<button type="submit">찾기</button>
 			</form>
 		</div>
-		</div>
 	</div>
-	-->
 	<!-- line -->
 	<div class="line"></div>
 	<div class="cafe_container">
