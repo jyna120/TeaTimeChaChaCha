@@ -25,7 +25,7 @@
    <div id="nav">
 	<nav>
         <ul>
-            <li><a href="../MainForm.jsp?contentPage=Home/home.jsp&title=TEA TIME">소개</a></li>
+            <li><a href="../MainForm.jsp?contentPage=Home/home.jsp&title=TEA TIME, CHA CHA CHA">소개</a></li>
             <li><a>|</a></li>
             <li><a href="../MainForm.jsp?contentPage=Tea/TeaForm.jsp&title=TEA">차</a></li>
             <li><a>|</a></li>

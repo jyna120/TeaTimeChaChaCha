@@ -119,9 +119,9 @@ background:#E9EDC9}
  		<tr>
   			<td align="center" valign="bottom">
    				<select name="keyField" size="1" >
-    				<option value="name"> 이 름</option>
-    				<option value="subject"> 제 목</option>
-    				<option value="content"> 내 용</option>
+    				<option value="com_name"> 이 름</option>
+    				<option value="com_subject"> 제 목</option>
+    				<option value="com_content"> 내 용</option>
    				</select>
    				<input size="16" name="keyWord"style="width:300px;border:3px solid #E9EDC9;border-radius:2px;">
    				<button type="button"onclick="location.href = 'MainForm.jsp?contentPage=Community/list.jsp&title=COMMUNITY&keyField=<%=keyField%>&keyWord=<%=keyWord%>'">찾기</button>
