@@ -314,15 +314,16 @@ public class BoardMgr {
          try {
             String com_filename = req.getParameter("com_filename");
             File file = new File(UtilMgr.con(SAVEFOLDER + File.separator+ com_filename));
+            System.out.println("경로를 제외한 파일이름 - " + file.getName());
             byte b[] = new byte[(int) file.length()];
             res.setHeader("Accept-Ranges", "bytes");
             String strClient = req.getHeader("User-Agent");
             if (strClient.indexOf("MSIE6.0") != -1) {
                res.setContentType("application/smnet;charset=euc-kr");
-               res.setHeader("Content-Disposition", "com_filename=" + com_filename + ";");
+               res.setHeader("Content-Disposition", "filename=" + com_filename + ";");
             } else {
                res.setContentType("application/smnet;charset=euc-kr");
-               res.setHeader("Content-Disposition", "attachment;com_filename="+ com_filename + ";");
+               res.setHeader("Content-Disposition", "attachment;filename="+ com_filename + ";");
             }
             out.clear();
             out = pageContext.pushBody();
