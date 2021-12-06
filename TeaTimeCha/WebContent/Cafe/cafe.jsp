@@ -13,14 +13,12 @@
 </script>
 </head>
 <body>
-<div id="section" style="text-align: center; width:100%;">
-	<!--
+<div id="section" style="text-align: center;">
 	<div id="cafebar">
-		<div class="order">
-			<form method="post" action="forwardTest6_1.jsp">
-			<input type="submit" value="리뷰순">
-			</form>
+		<div class="dayTea">
+			<span>서울에 있는 찻집 리스트</span>
 		</div>
+		<!--
 		<div id="search">
 			<div class="row">
 			<form method="get" name="search" action="cafeList.jsp">
@@ -39,29 +37,27 @@
 			</form>
 		</div>
 		</div>
+		-->
 	</div>
-	-->
 	<!-- line -->
 	<div class="line"></div>
 	<div class="cafe_container">
-	<%
-		Vector<CafeBean> vlist = cafeMgr.getCafeList();
-		int counter = vlist.size();
-		for(int i=0; i<vlist.size(); i++){
-	   		CafeBean cafeBean =vlist.get(i);
-	%>
-	<table class="cafe_box">
-	<tbody>
+		<%
+			Vector<CafeBean> vlist = cafeMgr.getCafeList();
+			int counter = vlist.size();
+			for(int i=0; i<vlist.size(); i++){
+	   			CafeBean cafeBean =vlist.get(i);
+		%>
+		<table class="cafe_box">
 		<tr>
 			<td class="cafe_image"><img class="cafePreview" src="CafeImage/<%=cafeBean.getCafe_image()%>" ></td>
 			<td class="cafe_info"><p class="cafe_name"><%=cafeBean.getCafe_name()%></p><br/><br/><%=cafeBean.getCafe_address()%><br/><br/><%=cafeBean.getCafe_info()%></td>
 		</tr>
-	</tbody>
-	</table>
-	<!-- line -->
-	<div class="line"></div>
-	<%} %>
-</div>
+		</table>
+		<!-- line -->
+		<div class="line"></div>
+		<%} %>
+	</div>
 </div>
 </body>
 </html>

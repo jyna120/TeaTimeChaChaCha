@@ -236,19 +236,20 @@ i {
 	background-color: #fdfdf7;
 }
 
-.order {
-	float:left; margin:10px;
-}
-
+/*
 #search {
 	float:right; margin:10px;
 }
+*/
 
 .line {
 	width:100%; height:1px; background:#CCD5AE;
 }
 
 .cafe_container {
+	display:inline-block;
+	align: center;
+	width: 70%;
 }
 
 .cafePreview{
